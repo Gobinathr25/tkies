@@ -1,0 +1,858 @@
+@font-face 
+{
+  font-family: 'OpenSans-Regular' ;
+  src: url('../../assets/font/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face 
+{
+  font-family: 'OpenSans-ExtraBold' ;
+  src: url('../../assets/font/OpenSans-ExtraBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-SemiBold' ;
+  src: url('../../assets/font/OpenSans-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-Bold' ;
+  src: url('../../assets/font/OpenSans-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo-Bold' ;
+  src: url('../../assets/font/Archivo-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Medium' ;
+  src: url('../../assets/font/Archivo-Medium.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Regular' ;
+  src: url('../../assets/font/Archivo-Regular.ttf') format('truetype');	
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-SemiBold' ;
+  src: url('../../assets/font/Archivo-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	background: #f0f1f5;
+}
+/**Flight Search start**/
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    /* line-height: 20px; */
+    display: inline-block;
+    color: #666;
+    font-size: 12px;
+    color: white;
+    /* margin-bottom: -20px; */
+}
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid a8b9df;
+    border-radius: 100%;
+    background: #a8b9df;
+    top: 4px;
+}
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #7b1fa2;
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.formFields {
+    padding-right: 2px !important;
+}
+img.icons {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    z-index:9;
+}
+.has-search.has-select label {
+    padding-left: 30px;
+}
+.box label {
+    position: absolute;
+    color: gray;
+    padding: 3px 0px 0px 10px;
+    font-size: 9px;
+}
+.has-select .form-control {
+    font-size: 12px;
+    padding-left: 30PX;
+    height: 37PX;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+.has-search .form-control {
+    font-size: 12px;
+    padding: 23px 0px 12px 10px;
+}
+.has-select .form-control {
+    font-size: 12px;
+    padding-left: 30PX;
+    height: 37PX;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+.has-search .form-control {
+    font-size: 12px;
+    padding: 23px 0px 12px 10px;
+}
+section.flightSearch {
+    background: #421b60;
+    padding: 15px 0px;
+}
+/**Flight Search End **/
+
+label{
+    display: inline-block;
+    padding-left:5px;
+    font-size: 11px;
+    line-height: 17px;
+    color: #4a4a4e;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+h6{
+
+    font-size: 11px;
+    line-height: 17px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 500;
+}
+.fontsize{
+    font-size:12px;
+    margin-bottom:0px;
+}
+.btn-color {
+  background-color: #421b60;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #ffffff;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+.border-radius{
+    border-radius:0px;
+    border:none;
+  }
+  .border-right{
+      border-right:2px solid lightgrey;
+  }
+  .btn-search{
+    width:100%;
+    margin-left: 0px;
+    height:34px;
+    margin-top:28px;
+    font-size:13px;
+  }
+  ul
+  {
+  list-style:none;
+  padding-left:0px;
+  }
+  .highlight-error {
+      color : white;
+  }
+span{
+color:#b4b2b2;
+margin-bottom:0px;
+margin-top:0px;
+font-size:12px;
+font-family:sans-serif !important;
+}
+.pre{
+  color: #b4b2b2 !important;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 13px;
+  font-family: sans-serif !important;
+  font-size: 7px;
+  line-height: 13px;
+  color: #b0b1b3;
+  font-family: "Archivo";
+  font-weight: 600;
+}   
+.text-black{
+    color:black;
+    padding-bottom:0px;
+  }
+  table{
+      border-collapse: collapse;
+  }
+  table td{
+      border:1px solid lightgrey;
+  }
+  table tr:first-child td{
+      border-top:none;
+  }
+  table tr td:first-child{
+      border-left:none;
+  }
+  table tr td:last-child{
+    border-right:none;
+}
+  table tr:last-child td{
+    border-bottom:none;
+}
+.line-height{
+    line-height:1;
+    
+}
+.flight-logo{
+    border:1px solid lightgrey;
+    border-radius:5px;
+    height:30px;
+    margin-top:10px;
+    width:80px;
+    margin-bottom:5px;
+}
+.flightlogo{
+    border:1px solid lightgrey;
+    border-radius:5px;
+    margin-bottom:5px;
+    margin-top:10px;
+    height:30px;
+    width:80px;
+    
+}
+.pree{
+font-size:11px;
+}
+
+
+  section.Flight-Section 
+  {
+      background: #f0f1f5;
+  }
+  .row.mx-0.FlightsectionBlogRight {
+    BORDER: 1px solid lightgrey;
+
+    background-color:#fff;
+    border-radius:5px;
+    
+}
+  .Section-Right {
+    padding: 0px;
+    padding-left:8px !important;
+    font-family: "Archivo-Medium";
+}
+.Section-Left {
+    padding: 10px;
+    /* padding-right: 8px; */
+    border: 1px solid #bababa;
+    background: white;
+    border-radius: 5px;
+    font-family: "Archivo-Medium";
+    font-size: 11px;
+    line-height: 17px;
+    color: #4a4a4e;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+
+  
+.icon-calender{
+    position: absolute;
+    left:80%;
+    top:55%;
+    color:#421b60;
+}
+ul.radioTabs.list-inline label {
+    position: inherit;
+    padding-left: 10px;
+    padding-top: 0px;
+    font-size: 14px;
+}
+.flightRadio LABEL {
+    /* COLOR: GRAY !IMPORTANT; */
+    font-size: 12px !IMPORTANT;
+    line-height: 10px;
+    color: #2c2e35 !IMPORTANT;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    /* line-height: 20px; */
+    display: inline-block;
+    color: #666;
+    font-size: 12px;
+    color: white;
+    /* margin-bottom: -20px; */
+}
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+
+    border-radius: 100%;
+    background: #e2f5f5;
+    top: 4px;
+}
+
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #421b60;
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+/* CHECKBOX */
+
+.container1 {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container1 input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 15px;
+width: 15px;
+background-color: #fff;
+
+border: 1px solid black;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container1 input:checked ~ .checkmark {
+background-color: #421b60;
+border:none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.container1 input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.container1 .checkmark:after {
+left: 6px;
+top: 1.5px;
+width: 5px;
+height: 9px;
+border: solid white;
+border-width: 0 2px 2px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+/* CheckBOX END */
+
+body {
+    
+    
+    font-size:12px;
+    background: #f0f1f5 !important;
+}
+.RadioSection{
+    background-color: #421b60;
+    font-family: "GeometricSlabmd";
+}
+.size{
+ height: 40px;
+}
+.headerRightMenu li a
+{
+padding:0px;
+
+}
+.headerRightMenu
+{
+margin-top: 15px !important;
+}
+.headerRightMenu li a
+{
+padding: 0px;
+}
+
+.roomselect {
+background-color: #fff;
+color:#495057;
+height: 51px;
+border-radius: .25rem;border: 1px solid #ced4da;padding-top:13px;padding-left: 35px;
+
+}
+body{
+font-family:GeometricSlabmd;
+}
+.usericon{
+position: absolute;
+z-index: 102;
+color: black;
+padding-left: 12px;
+padding-top: 17px;
+
+}
+
+
+
+  .card1 {
+  margin-top:100px;
+      color: black!important; 
+  }
+  .martop  {
+
+      margin-top:1.5rem;
+  }
+  .border-bottom {
+      border-bottom: 1px solid #dee2e6!important;
+      padding:1rem;
+  }
+  .border-primary {
+      border-color: #4285f4!important;
+  }
+  .border {
+      border: 1px solid #dee2e6!important;
+  }
+  .width95 {
+      width:95%;
+  }
+  .roomcard {
+      width: 100%;border:1px solid #3880ff;
+  }
+  .rowbg {
+      background-color: #0a2c63;padding:10px;
+  }
+  .hdcolor {
+      font-size:14px;  color:#fff;
+  }
+  .iconsty {
+      font-size:20px;  color:#fff;
+  }
+  .subhead {
+      font-size:15px;  color:#000000;font-weight:bold;
+  }
+  .infosty {
+      font-size:12px;  color:#000000;font-weight:bold;
+  }
+  .mrlft {
+      margin-left:10px;
+      color:#000000;
+  }
+  .htmrl {
+      height: 18px;margin-left:10px;
+      font-size:11px;
+  }
+  .dflex {
+      display:inline-flex;font-size:18px;
+  }
+  .pricesty {
+      font-weight:bold;margin-left:10px;color:#000000;
+  }
+  .addsty {
+      font-size: 10px;
+                  height: 22px;
+  }
+  .horlinesty {
+      border-top: 1px dashed #000000;
+      margin-top:7px;
+      
+      height:1px;
+      width:95%;
+  }
+  .inline {
+      display:inline-flex;
+  }
+  
+      
+      .image1 {
+          width: 100%;
+           height: 450px;
+           background-image: url(../../assets/images/flightbanner.jpg);
+         
+           }
+        
+           .hero-bkg-darken {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+          
+          }
+          .blended {
+          
+              background-blend-mode: multiply;
+          }
+       .img .hover{
+           -webkit-transition: 0.4s ease;
+           transition: 0.4s ease;
+       }
+       .col{
+          max-width:45% !important  ;
+          flex:0 0 45% !important;  
+          
+      }
+      .col1{
+          max-width:30% !important  ;
+          flex:0 0 30% !important;  
+          
+      }
+      .col2{
+          max-width:22.5% !important  ;
+          flex:0 0 22.5% !important;  
+          
+      }
+      .col3{
+          max-width:22.5% !important  ;
+          flex:0 0 22.5% !important;  
+          
+      }
+
+  @media screen and (max-width: 990px) and (min-width: 320px) {
+     
+      .inline {
+  display:inline-block !important;
+      }
+         
+  }
+
+  
+@media (min-width: 320px) and (max-width: 480px){
+.flex0{
+  flex:none !important;
+}
+.Section-Left ul label{
+ margin-bottom:-60px;
+}
+.Section-Left{
+ margin-bottom: 10px;
+}
+.Section-Right{
+padding-left:0px !important;
+}
+.margin0{
+margin:0 auto;
+width:40% !important;
+}
+.center{
+text-align: center;   
+}
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+.flex0{
+  flex:none !important;
+}
+.Section-Left ul label{
+  margin-bottom:-60px;
+}
+.Section-Right{
+  padding-left:0px !important;
+}
+.margin0{
+  margin:0 auto;
+  width:40% !important;
+}
+.Section-Left{
+  margin-bottom: 10px;
+}
+.center{
+  text-align: center;
+}
+}
+
+@media (min-width:1024px) and (max-width: 1199px){
+.flex0{
+  flex:none !important;
+}
+.Section-Left ul label{
+  margin-bottom:-60px;
+}
+.Section-Right{
+  padding-left:0px !important;
+}
+.margin0{
+  margin:0 auto;
+  width:40% !important;
+}
+.Section-Left{
+  margin-bottom: 10px;
+}
+.center{
+  text-align: center;
+}
+}
+.box.arrow-top1 {
+  width: 100%;
+  float: left;
+}
+.has-select .form-control {
+  font-size: 12px;
+  padding-left: 30PX;
+  height: 37PX;
+  padding-top: 10px !important;
+  padding-bottom: 0px !important;
+}
+input.btn.btn-danger.form-control.customBtn {
+  background: #8bc24a !important;
+  border: 0px;
+}
+/** Dropdown select **/
+.oneroom {
+  padding: 6px 14px;
+  vertical-align: top;
+}
+.roomrow {
+  display: table;
+  width: 100%;
+}
+.bor-bot {
+border-bottom:1px solid #000;
+}
+.celroe {
+  display: table-cell;
+  padding: 10px;
+  float: none;
+  vertical-align: middle;
+color:#2d343b;
+font-size: 12px;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  padding: 0;
+float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: 0px 10px;
+  background: transparent;
+  text-decoration: none !important;
+  text-align: center;
+  line-height: 20px;
+   padding:0;
+ font-size:15px;
+}
+
+.psngrpopover
+{
+  display:none;
+  top: 55px;
+  right:0;
+  position:absolute;
+  width:283px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  z-index: 9;
+  background: white;
+}
+.posrel 
+{
+  position:relative;
+}
+.fa-caret-up:before {
+  content: "\f0d8";
+  color: white;
+}
+.form-check
+{
+  padding-left:0px;
+}
+.roomrow label
+{
+  color:gray !important;
+}
+
+/** Modification **/
+.iconBox ul li {
+  font-size: 12px;
+
+  color: #4a4a4e;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+.checkBox label {
+  font-size: 11px !important;
+  line-height: 13px;
+  color: #4a4a4e !important;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+.checkBox h6 {
+  font-size: 11px;
+  line-height: 17px;
+  color: #2c2e35;
+  font-family: "Archivo";
+  font-weight: 500;
+  text-transform: uppercase;
+}
+tr.text-center.flightName td ul li {
+  font-size: 8px;
+  line-height: 15px;
+  color: #4a4a4e;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+tr.text-center.flightName td ul li span
+{
+  font-size:6px;
+}
+tr.text-center.flightStopage td {
+  font-size: 10px;
+  line-height: 15px;
+  color: #431c60;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+.flightDeatils ul li
+{
+  font-size: 10px;
+    color: #747474;
+    font-family: "Archivo";
+    font-weight: 500;
+}
+.bigFont {
+  font-size: 14px !important;
+}
+ul.pl-1.DeatilsDABPW {
+  font-size: 9px;
+  color: #747474;
+  font-family: "Archivo";
+  font-weight: 500;
+}
+.flightNameRight span {
+  font-size: 10px;
+  line-height: 13px;
+  color: #747474;
+  font-family: "Archivo";
+  font-weight: 500;
+}
+.flightDepature li span {
+  font-size: 9px;
+  line-height: 13px;
+  color: #747474;
+  font-family: "Archivo";
+  font-weight: 500;
+}
+.flightTab a {
+  font-size: 11px;
+  line-height: 13px;
+  color: #4527a0;
+  font-family: "Archivo";
+  font-weight: 400;
+}
+.flightTabBodyHeader
+{
+  font-size: 11px;
+  line-height: 15px;
+  color: #fdfbfb;
+  font-family: "Archivo";
+  font-weight: 400;
+}

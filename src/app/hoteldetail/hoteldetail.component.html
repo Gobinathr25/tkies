@@ -1,0 +1,511 @@
+<!--HOTEL SEARCH PAGE-->
+<section class="hotelSearch py-5" >
+	<ngx-spinner></ngx-spinner>
+
+  <div class="container" *ngIf="hotelDetails.hotel_name" >
+	  <!--MODIFY SEARCH-->
+      <div class="modifySearch">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 ">
+              <div class="float-left modifySearchLeft">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  <span>Back to Search Results</span>
+              </div>
+              <div class="float-right modifySearchRight">
+                  <button type="button" class="form-control" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Modify Search
+                  </button>
+              </div>
+          </div>
+      </div>
+      </div>
+	  <hr>
+
+	  <!--HOTEL DETAILS NAME-->
+      <div class="hotelDeatilsSecname">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="float-left">
+                      <div class="primaryTextHotelName"><h5>{{hotelDetails.hotel_name}}<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+</h5></div>
+                      <div class="secondaryTextHotelName"><p><i class="fa fa-map-marker" aria-hidden="true"></i>
+{{hotelDetails.address}}</p></div>
+                  </div>
+                  <div class="float-right">
+                      <span class="hotelPrice">USD 179.89</span>
+                      <button type="button" class=" chooseRoomBtn">Choose Room</button>
+                  </div>
+              </div>
+          </div>
+      
+      </div>
+      <!-- HOTEL DETAILS IMAGE-->
+	  <div class="hotelDeatilsSecImage mb-4">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card mt-3 tab-card">
+                    <div class="card-header tab-card-header">
+                      <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="one-tab" data-toggle="tab" routerLink="/hoteldetail/" fragment="three" role="tab" aria-controls="One" aria-selected="true">PHOTOS</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" id="two-tab" data-toggle="tab" routerLink="/hoteldetail/" fragment="two" role="tab" aria-controls="Two" aria-selected="false">ROOMS</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" id="three-tab" data-toggle="tab" routerLink="/hoteldetail/" fragment="three" role="tab" aria-controls="Three" aria-selected="false">MAP</a>
+
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="four-tab" data-toggle="tab" routerLink="/hoteldetail/" fragment="four" role="tab" aria-controls="four" aria-selected="false">AMENITIES</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="five-tab" data-toggle="tab" routerLink="/hoteldetail/" fragment="five" role="tab" aria-controls="Five" aria-selected="false">HOTEL POLICIES</a>
+                        </li>
+                      </ul>
+                    </div>
+            
+                   <div class="tab-content" id="myTabContent">
+                    <!--  <div class="tab-pane fade  p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <h5 class="card-title">PHOTOS</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>              
+                      </div> -->
+                      <div class="tab-pane fade show active p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                        <div class="card-body p-0">
+						<div class="row mx-0">
+						<div class="col-lg-9 col-md-9 col-sm-12 col-12 px-0">
+							<div class='col-12'>  
+								<ngb-carousel>  
+									<ng-template ngbSlide  *ngFor="let imgname of hotelDetails.images">  
+									<img src="{{imgname}}" width="800" height="500" alt="Random first slide">
+								</ng-template>
+							</ngb-carousel>
+						</div>
+							<!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+							  <ol class="carousel-indicators">
+								<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"><img src="../../assets/images/hotelDetails/Hotel-Search-4.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="1"><img src="../../assets/images/hotelDetails/Hotel-Search-5.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+								<li data-target="#carouselExampleIndicators" data-slide-to="2"><img src="../../assets/images/hotelDetails/Hotel-Search-18.jpg"></li>
+							  </ol>
+							  <div class="carousel-inner">
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+								<div class="carousel-item active">
+								  <img class="d-block w-100" src="../../assets/images/hotelDetails/Hotel-Search-3.jpg" alt="First slide">
+								</div>
+							  </div>
+							  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+								<span class="sr-only">Previous</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+								<span class="sr-only">Next</span>
+							  </a>
+							</div> -->
+						<div class="hotelDetailsHighlist">
+							<ul class="list-inline">
+								<p>HIGHLIGHTS</p>
+								<li class="list-inline-item"><div class="blankBox"></div></li>
+								<li class="list-inline-item"><div class="blankBox"></div></li>
+								<li class="list-inline-item"><div class="blankBox"></div></li>
+								<li class="list-inline-item"><div class="blankBox"></div></li>
+							</ul>
+						</div>
+						<div class="hotelDetailsOverview">
+							<h5>OVERVIEW</h5>
+							<p>{{hotelDetails.description}}</p>
+							<!--<p data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-botttom:0px;" class="choseRumLink ">Read More <i _ngcontent-vfe-c110="" class="fas fa-angle-down"></i></p>
+							<div class="collapse" id="collapseExample">
+							  <div class="card card-body">
+								{{hotelDetails.address}}
+							  </div>
+							</div> -->
+						</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+							<div class="checkIncheckOut">
+								<p>CHECK IN : 2:00 PM</p>
+								<p>CHECK OUT : 12:00 PM</p>
+							</div>
+						</div>
+						</div>
+						</div>              
+                      </div>
+                 <!--     <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+                        <h5 class="card-title">MAP</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>              
+                      </div>
+                      <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+                          <h5 class="card-title">AMENITIES</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>              
+                      </div>
+                      <div class="tab-pane fade p-3" id="five" role="tabpanel" aria-labelledby="five-tab">
+                          <h5 class="card-title">HOTEL POLICIES</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>              
+                      </div>  -->
+            
+                    </div> 
+                  </div>
+                </div>
+              </div>
+      </div>
+      <!--CHOOSE RROM-->
+	  <div class="chooseRoomSection mb-4">
+          <div class="chooseRoomHeading" id="two">
+              <h5>CHOOSE ROOM</h5>
+          </div>
+          <div class="chooseRoomInnerDiv">
+              <div class="chooseRoomSearch" >
+			  <div class="box arrow-top2">
+					<form id="MyForm" action="" method="post">
+					<div class="row mx-0">						
+						<div class="col-lg-2 col-md-3 col-sm-12 col-12 formFields pr-0 pl-0">
+							<div class="form-group has-search has-select m-0">
+								<img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+								<label>Departure</label>
+								<input type="text"  id = "datepicker-3" placeholder="DD/MM/YYYY" class="form-control" />
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-3 col-sm-12 col-12 formFields p-0">
+							<div class="form-group has-search has-select has-select m-0">
+								<img src="../../assets/images/banner/date.png" alt="icon" class="icons"/>
+								<label>Return</label>
+								<input type="text"  id = "datepicker-4" placeholder="DD/MM/YYYY" class="form-control" />
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-12 col-12 formFields p-0">
+							<div class="form-group has-search has-select m-0 dropdown">
+								<img src="../../assets/images/banner/traveller.png" alt="icon" class="icons" />
+								<label>Traveller,Class</label>
+									<div class="form-group posrel">
+                                      <input type="text" class="form-control"  placeholder="1 Room,1 Adult,0 Children" id="select_room" autocomplete="off">  
+										<div  class="roomcount  user-details psngrpopover">
+											<div id="divRoom1" class="oneroom user_data form-row ">
+											 <div class="roomrow" style="padding: 14px;">
+											  <h6 class='roomnum'>Room 1</h6>
+											  </div>
+											  <hr style='margin-top: 0px;margin-bottom: 0px;'>
+											  <div class="roomrow">
+												<div class="celroe col-xs-5">
+												  Adults<br>
+														   <span class="agemns">Over 18 years old</span>
+												  </div>
+												<div class="celroe col-xs-7">
+												  <div class="quantity ">
+													 <input id="room1AdultMinus" class="quantity__minus adult_minus" type="button" value="-" >
+													 <input  type="text" class="form-control quantity__input adult_input" value="1" data-val="true" data-val-number="The field NoOfAdults must be a number." data-val-required="The NoOfAdults field is required." id="room1Adult" name="roomsNoOfAdults[]" required />
+													 <input id="room1AdultPlus" class="quantity__plus adult_plus" type="button" value="+" >
+												  </div>
+												</div>
+											  </div>
+											  <hr style='margin-top: 0px;margin-bottom: 0px;'>
+											  <div class="roomrow">
+												<div class="celroe col-xs-5">
+												  Children<br>
+														  <span class="agemns">Up to 18 years old</span>
+												  </div>
+												<div class="celroe col-xs-7">
+												  <div class="quantity ">
+													  <input id="room1ChildMinus" class="quantity__minus children_minus" type="button" value="-" >
+													<input  type="text" class="form-control quantity__input children_input" data-val="true" data-val-number="The field NoOfChildren must be a number." data-val-required="The NoOfChildren field is required." id="room1Child" name="roomsNoOfChildren[]" type="text" value="0" >
+													<input id="room1ChildPlus" class="quantity__plus children_plus" type="button" value="+" >
+												  </div>
+												</div>
+											  </div>
+											<div class="roomrow">
+											 <div id="divroom1ChildAges1" class="row"  style="margin-left: 0;display:none;width:100%; ">
+											  <span id="rchild1" ></span>
+											 </div>
+											</div>
+											<hr style='margin-top: 0px;margin-bottom: 0px;'>
+										</div>
+										<div class="roomrow">
+										 <div class="celroe col-xs-5" style="padding-left:12px;">
+										  <a href="#" class="custombtn">Add Room</a>
+										   </div>
+										  </div>
+										  <div class="roomrow btnrow" >
+										   <button  type="button" class="btn  done1">Done</button>
+										  </div>                                  
+										</div>
+										</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-2 col-sm-12 col-12 formFields p-0">
+							<input type="sumbit" class="btn btn-danger form-control customBtn" name="submit" value="Search" style="height:37px;"/>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-12 formFields p-0">
+						</div>
+					</div>
+					</form>
+			  </div>
+			  </div>
+		
+		  <div class="chooseRoomSearchResult" *ngFor="let room of roomDetails; let j=index">
+			<form id="MyForm" #createForm=ngForm (ngSubmit)="onSubmit(createForm.value)">
+
+				<input type="text"  name="roomid"  value="{{room[0][0]}}" >
+
+			    
+				<div class="row mx-0" > 
+					<div class="col-lg-12 col-md-12 col-sm-12 col-12 choseromsrchHding">
+						<h6>{{room[0].room_name}}</h6>
+					</div>
+				</div>
+				<div class="row mx-0">
+                  <div class="col-lg-2 col-md-12 col-sm-12 col-12 chooseRoomImg ">
+                      <!--<img src="../../assets/images/hotelDetails/Hotel-Search-20.jpg" alt="img" class="img-fluid text-center" />-->
+                      <ul>
+						  <li>Amenities</li>
+                          <li  *ngFor="let amenities of room[j]"><i class="fa fa-check" aria-hidden="true"></i>{{amenities}}}</li>
+                         
+						  <li class="choseRumLink" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+									More Inclusions<i class="fas fa-angle-down"></i>
+						  </li>
+						  <div class="collapse" id="collapseExample">
+							<ul>
+								<li><i class="fa fa-bed" aria-hidden="true"></i>1 Twin Bed</li>
+							</ul>
+						  </div>
+                      </ul>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-sm-12 col-12 chooseRoomDetails pl-0">
+                      <div class="row mx-0">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+							<h6>Superior Room, 1 Twin Bed</h6>
+						</div>
+                          <div class="col-lg-4 col-md-4 col-sm-12 col-12 roomnoOfGuest">
+                              <p class="choseRumsubHeading">Max Guests</p>
+							   <span><i class="fas fa-male"></i><i class="fas fa-male"></i></span>
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-sm-12 col-12 roomHighlights">
+                              <p class="choseRumsubHeading">Highlights</p>
+							  <ul class="choseRumList">
+                                  <li><i class="far fa-check-circle"></i>Free Cancellation</li>
+                                  <li><i class="fa fa-times"></i>Not Included</li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-sm-12 col-12 roomPrices text-center">
+                              <p>Price for 2 nights</p>
+                              <span>USD 179.89
+                              </span>
+                          </div>
+                          <div class="col-lg-2 col-md-2 col-sm-12 col-12 Highlights">
+                              <button type="button" class="bookBtn form-control">Book Now</button>
+                          </div>
+                      </div>
+					<!--  <div class="border-dotted"></div>
+                      <div class="row mx-0">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+							<h6>Superior Room, 1 Twin Bed</h6>
+						</div>
+                          <div class="col-lg-2 col-md-4 col-sm-12 col-12 roomnoOfGuest">
+                              <p class="choseRumsubHeading">Max Guests</p>
+							  <span><i class="fas fa-male"></i><i class="fas fa-male"></i></span>
+                          </div>
+                          <div class="col-lg-2 col-md-4 col-sm-12 col-12 roomInclusions">
+                              <p class="choseRumsubHeading">Inclusions</p>
+                              <ul class="choseRumList">
+                                  <li><i class="fa fa-check" aria-hidden="true"></i>Free Breakfast </li>
+                                  <li><i class="fa fa-check" aria-hidden="true"></i>Free Valet Parking</li>
+								  <li class="choseRumLink" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+									More Inclusions<i class="fas fa-angle-down"></i>
+								  </li>
+								<div class="collapse" id="collapseExample">
+								  <div class="card card-body">
+									Text
+								  </div>
+								</div>
+                              </ul>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-sm-12 col-12 roomHighlights">
+							<p class="choseRumsubHeading">Highlights</p>
+							 <ul class="choseRumList">
+                                  <li><i class="far fa-check-circle"></i>Free Cancellation</li>
+								  <li><i class="fas fa-coffee"></i>Free Breackfast</li>
+                                  <li><i class="fa fa-times"></i>Not Included</li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-sm-12 col-12 roomPrices text-center">
+                              <p>Price for 2 nights</p>
+                              <span>USD 179.89
+                              </span>
+                          </div>
+                          <div class="col-lg-2 col-md-3 col-sm-12 col-12 Highlights">
+                              <button type="button" class="bookBtn form-control">Book Now</button>
+                          </div>
+                      </div>
+                  </div> -->
+				</div>
+			<!--	<div class="row mx-0">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+				  <button class="btn viewmoreBtn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					VIEW MORE<i class="fas fa-angle-down"></i>
+				  </button>
+				  <div class="borderBetween"></div>
+					<div class="collapse" id="collapseExample">
+					  <div class="card card-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+					  </div>
+					</div>
+				</div> -->
+				</div> 
+			 
+			</form>
+
+			</div>
+
+		</div>
+      </div>
+      <!--MAP VIEW -->
+	  <div class="mapView mb-4" id="three">
+        <div class="sectionHeading">
+            <h5>Map View</h5>
+        </div>
+        
+        <div class="mapViewInner">
+			<img src="../assets/images/hotelDetails/Hotel-Search-19.jpg" alt="map-image" class="img-fluid" />
+        </div>
+      </div>
+      <!--HOTEL AMENITIES-->
+	  <section class="hotelAmenities mb-4">
+		<div class="sectionHeading" id="four">
+            <h5>HOTEL AMENITIES</h5>
+        </div>
+		<div class="sectionInnerBody">
+		<div class="row">
+<!--			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>Services</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Express Check-in/Check-out</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Lift</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>E24-Hour Front Desk</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Business center </li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Express Check-in/Check-out</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Laundry facilities</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>Limousine Service</li>
+			</ul>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>Miscellaneous</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+			</ul>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>Parking & Transportation</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+			</ul>
+			</div> -->
+			{{hotelDetails.hotel_facilities}}
+		</div>
+	<!--	<div class="row">		
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>Activities - Indoor & Outdoor</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+			</ul>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>General</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+			</ul>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+			<ul>
+				<li class="list-heading"><i class="fa fa-circle" aria-hidden="true"></i>Payment Modes Accepted</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+				<li><i class="fa fa-check" aria-hidden="true"></i></li>
+			</ul>
+			</div>
+		</div> -->
+		</div>
+	  </section>
+	  <!--HOTEL POLICIES-->
+      <section class="hotelPolicies">
+        <div class="sectionHeading" id="five">
+            <h5>HOTEL POLICIES</h5>
+        </div>
+        <div class="sectionInnerBody">
+            <ul class="list-inline">
+                The primary guest must be at least 18 years of age to check into this hotel(s).As per Government regulations, It is mandatory for all guests above 18 years of age to carry a valid photo identity card & address proof at the time of check-in. In case, check-in is denied by the hotel(s) due to lack of required documents, you cannot claim for the refund & the booking will be considered as NO SHOW.Unless mentioned, the tariff does not include charges for optional room services (such as telephone calls, room service, mini bar, snacks, laundry extra bed etc.). In case, such additional charges are levied by the hotel(s), we shall not be held responsible for it.Extra bed can be accommodated with a folding cot or a mattress, subject to room size & availability. 18% GST would be applicable on extra guest charges for all the directly contracted properties and may not be applicable for properties sourced from external suppliers.The hotel(s) reserves the right to decline accommodation to localites/same city residents / Posing Couples. Yatra.com will not be responsible for any check-in declined by the hotel(s) or any refunds due to the above mentioned reason.The hotelier may charge your Card/Account for additional cancellation charges, if any.All hotel(s) charge a compulsory Gala Dinner Supplement on Christmas and New Year's eve. Other special supplements may also be applicable during festival periods such as Dusshera, Diwali etc. Any such charge would have to be cleared directly at the hotel(s).In case of an increase in the hotel(s) tariff (due to an event or festive occasion) the customer is liable to pay the difference, if the period of stay falls within this duration.Invoice for hotel stay must be collected at the time of checkout, directly from the hotel.Local ID proof & Pan card will not be acceptable as ID proof.
+            </ul>
+        </div>
+    </section>
+  </div>
+  <div class="collapse" id="collapseExample">
+      <div claas="hotelSearchBackground">
+      <div class="container">
+      <div class="row">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+</section>

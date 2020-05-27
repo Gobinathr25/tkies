@@ -1,0 +1,444 @@
+<content class="hotelPage">
+  <!-- Hotel Search Box-->
+  <section class="hotelSearchBox">
+    <form [formGroup]="hotelForm" (ngSubmit)="onSubmit(hotelForm.value)">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 box px-0">
+            <div class="row mx-0">
+              <div class="col-lg-4 col-md-4 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select m-0">
+                  <img src="../../assets/images/banner/location.png" alt="icon" class="icons">
+                  <label for="userIdFirstWay">City,Area Of The Hotel</label>
+                  <input type="text" (keyup)="getUserIdsFirstWay($event)" id="userIdFirstWay" name="userIdFirstWay"
+                    list="dynmicUserIds" formControlName="city_name" placeholder="DXB - Dubai Airport, United Arab "
+                    class="form-control">
+                  <datalist id="dynmicUserIds">
+                    <option *ngFor="let item of cityList1;" [value]="item">{{item}}</option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select has-select m-0">
+                  <img src="../../assets/images/banner/date.png" alt="icon" class="icons">
+                  <label>Checkin</label>
+                  <!-- <input type="text" id="datepicker-1" #sd placeholder="DD/MM/YYYY" class="form-control" autocomplete="off" name="checkin_date" ngModel>-->
+                  <input type="text" ngbDatepicker #c="ngbDatepicker" placeholder="DD/MM/YYYY"
+                    formControlName="checkin_date" class="form-control" (click)="c.toggle()" />
+
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search  has-select m-0">
+                  <img src="../../assets/images/banner/date.png" alt="icon" class="icons">
+                  <label>Checkout</label>
+                  <!-- <input type="text" id="datepicker-2" #ed placeholder="DD/MM/YYYY" class="form-control" autocomplete="off" name="checkout_date" ngModel> -->
+                  <input type="text" ngbDatepicker #d="ngbDatepicker" placeholder="DD/MM/YYYY"
+                    formControlName="checkout_date" class="form-control" (click)="d.toggle()" />
+
+
+                </div>
+
+
+
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12  mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select m-0">
+                  <img src="../../assets/images/banner/traveller.png" alt="icon" class="icons" style=" z-index: 999;">
+                  <label style=" z-index: 999;">Traveller,Class</label>
+                  <div class="form-group posrel">
+                    <input type="text" class="form-control" placeholder="1 Room,1 Adult,0 Children" id="select_room"
+                      formControlName="pass_count" autocomplete="off">
+
+                    <div class="roomcount  user-details psngrpopover">
+                      <div id="divRoom1" class="oneroom user_data form-row ">
+                        <div class="roomrow" style="padding: 14px;">
+                          <h6 class='roomnum'>Room 1</h6>
+                        </div>
+                        <hr style='margin-top: 0px;margin-bottom: 0px;'>
+                        <div class="roomrow">
+                          <div class="celroe col-xs-5">
+                            Adults<br>
+                            <span class="agemns">Over 18 years old</span>
+                          </div>
+                          <div class="celroe col-xs-7">
+                            <div class="quantity ">
+                              <input id="room1AdultMinus" class="quantity__minus adult_minus" type="button" value="-">
+                              <input type="text" class="form-control quantity__input adult_input" value="1"
+                                data-val="true" data-val-number="The field NoOfAdults must be a number."
+                                data-val-required="The NoOfAdults field is required." id="room1Adult"
+                                name="roomsNoOfAdults[]" required />
+                              <input id="room1AdultPlus" class="quantity__plus adult_plus" type="button" value="+">
+                            </div>
+                          </div>
+                        </div>
+                        <hr style='margin-top: 0px;margin-bottom: 0px;'>
+                        <div class="roomrow">
+                          <div class="celroe col-xs-5">
+                            Children<br>
+                            <span class="agemns">Up to 18 years old</span>
+                          </div>
+                          <div class="celroe col-xs-7">
+                            <div class="quantity ">
+                              <input id="room1ChildMinus" class="quantity__minus children_minus" type="button"
+                                value="-">
+                              <input type="text" class="form-control quantity__input children_input" data-val="true"
+                                data-val-number="The field NoOfChildren must be a number."
+                                data-val-required="The NoOfChildren field is required." id="room1Child"
+                                name="roomsNoOfChildren[]" type="text" value="0">
+                              <input id="room1ChildPlus" class="quantity__plus children_plus" type="button" value="+">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="roomrow">
+                          <div id="divroom1ChildAges1" class="row" style="margin-left: 0;display:none;width:100%; ">
+                            <span id="rchild1"></span>
+                          </div>
+                        </div>
+                        <hr style='margin-top: 0px;margin-bottom: 0px;'>
+                      </div>
+                      <div class="roomrow">
+                        <div class="celroe col-xs-5" style="padding-left:12px;">
+                          <a href="#" class="custombtn">Add Room</a>
+                        </div>
+                      </div>
+                      <div class="roomrow btnrow">
+                        <button type="button" class="btn  done1">Done</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-12 px-0">
+                <button type="sumbit" class="btn btn-danger form-control customBtn" name="submit">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!--Hotel Page Heading-->
+  <section class="pageHeading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+          <div class="float-left">
+            <h5>{{cityName | uppercase }} HOTELS AND PLACES TO STAY</h5>
+            <p *ngIf="hotelList">Showing {{hotelList.length}} Properties in {{cityName}} <span>Sort By:
+                <select id="sel1">
+                  <option>Popularity</option>
+                  <option>Popularity</option>
+                  <option>Popularity</option>
+                  <option>Popularity</option>
+                </select></span> </p>
+          </div>
+          <div class="float-right searchBoxHotel">
+            <!-- Actual search box -->
+            <div class="form-group has-search searchBoxHotelInner">
+              <span class="fa fa-search form-control-feedback"></span>
+              
+            <input type="text" class="form-control" placeholder="Enter Location or Property Name">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Hotel Page Section-->
+  <section class="hotelSection">
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelSectionLeft ">
+          <div class="map text-center">
+            <img src="../../assets/images/hotel/map.jpg" alt="map" class="img-fluid" />
+          </div>
+
+          <div id="accordion" class="accordion">
+            <div class="card hotelName">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    PRICE FOR
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="card hotelPrice">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    PRICE FOR
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  Content left
+                </div>
+              </div>
+            </div>
+            <div class="card hotelRating">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    STAR RATING
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  <table class="table table-bordered text-center">
+                    <thead>
+                      <tr>
+                        <th scope="col">1<i class="fas fa-star"></i></th>
+                        <th scope="col">2<i class="fas fa-star"></i></th>
+                        <th scope="col">3<i class="fas fa-star"></i></th>
+                        <th scope="col">4<i class="fas fa-star"></i></th>
+                        <th scope="col">5<i class="fas fa-star"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>43</td>
+                        <td>43</td>
+                        <td>189</td>
+                        <td>123</td>
+                        <td>98</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    TRIPADVISOR RATING
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                  Content Left
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    SHOW HOTELS WITH
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="checkboxForgetl">
+                    <input type="checkbox" class="styled-checkbox" id="exampleCheck1" checked="">
+                    <label class="" for="exampleCheck1">Free Breakfast</label>
+                  </div>
+                  <div class="checkboxForgetl">
+                    <input type="checkbox" class=" styled-checkbox" id="exampleCheck1">
+                    <label class="" for="exampleCheck1">Free Cancellation</label>
+                  </div>
+                  <div class="checkboxForgetl">
+                    <input type="checkbox" class=" styled-checkbox" id="exampleCheck1">
+                    <label class="" for="exampleCheck1">Couple Friendly </label>
+                  </div>
+                  <div class=" checkboxForgetl">
+                    <input type="checkbox" class="styled-checkbox" id="exampleCheck1">
+                    <label class="" for="exampleCheck1">Free Wifi
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    ALL LOCALITIES
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                <div class="card-body">
+                  Content Left
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingSeven">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    AMENITIES
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                <div class="card-body">
+                  Content Left
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingEight">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    PROPERTY TYPE
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                <div class="card-body">
+                  Content Left
+                </div>
+              </div>
+            </div>
+            <div class="card hotelAdvisiorRating">
+              <div class="card-header" id="headingNine">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    HOTEL CHAINS
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+                <div class="card-body">
+                  Content Left
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotel search result -->
+
+        <div class="col-lg-9 col-md-9 col-sm-12 col-12 hotelSectionRight">
+          <ngx-spinner></ngx-spinner>
+
+          <div class="row mx-0 hotelsectionBlogRight" *ngFor="let hotel of hotelList">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 hotelRightImg px-0 text-center">
+              <img src="{{hotel.main_image}}" alt="pic" class="img-fluid" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 hotelRightContent">
+              <h5 (click)="getHotelDetails(hotel)" >{{hotel.hotel_name}}<span class="ratingStyle">
+                 <ul *ngIf="hotel.rating==1"> 
+                  <i class="fas fa-star"></i>
+                </ul>
+                <ul *ngIf="hotel.rating==2"> 
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </ul> 
+                <ul *ngIf="hotel.rating==3"> 
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </ul> 
+                <ul *ngIf="hotel.rating==4"> 
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </ul> 
+                </span></h5>
+              <span><i class="fa fa-map-marker" aria-hidden="true"></i>
+                {{hotel.address}}</span>
+              <ul>
+                <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+
+                  Free Cancellation</li>
+                <li><i class="fa fa-coffee" aria-hidden="true"></i>
+                  Free Breakfast</li>
+                <li><i class="fa fa-wifi" aria-hidden="true"></i>
+                  Free Free Wifi</li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12 hotelPriceRight">
+              <p>{{hotel.price_details.CurrencyCode}} {{hotel.price}}</p>
+              <span>Per Night</span>
+              <button type="button" (click)="getHotelDetails(hotel)">Choose Room</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--Login Section-->
+  <!--Section Login Start-->
+  <div class="modal" id="myModal-registration">
+
+  </div>
+  <!--Registration page-->
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <section class="loginPage">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mx-auto text-center loginFormdiv alert  alert-dismissible">
+        <div class="loginIcon arrow-bottom arrow-bottom-border">
+          <a href="#" class="close customClass" data-dismiss="alert" aria-label="close">&times;</a>
+          <img src="../../assets/images/header/rUsericon.png" alt="icon" />
+        </div>
+        <div class="loginForm">
+          <h5 class="primaryText"><strong>Get the full experienc </strong></h5>
+          <p class="SecondayText">Track prices, make trip planning easier and enjoy faster booking.</p>
+          <form>
+            <div class="input-group">
+              <input type="text" placeholder="Usename" class="form-control">
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Password" class="form-control">
+            </div>
+            <div class="float-left checkboxForgetl">
+              <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" checked>
+              <label for="styled-checkbox-2">Remember Me</label>
+            </div>
+            <div class="float-right checkboxForgetl">
+              <a href="#">Forgot Password</a>
+            </div>
+            <button type="submit" class="form-control">Continue</button>
+            <p class="checkboxForgetl">By proceeding, you agree with our<a href="#" class="link">Terms of Services</a><a
+                href="#" class="link">Privacy Policy </a>& <a href="" class="link">Master user Agreement</a></p>
+          </form>
+          <hr>
+          <div class="socialBtngf">
+            <div class="socailBtn google-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="../../assets/images/popup/google-photos-icon.png" alt="google-icon" />
+              </div>
+              <p>Sign in with Google</p>
+            </div>
+            <div class="socailBtn google-btn facebook-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="../../assets/images/popup/fb-icon.png" alt="google-icon" />
+              </div>
+              <p>Sign in with Facebook</p>
+            </div>
+          </div>
+          <p class="SecondayText">Don’t have an account? <a href="Register.html" class="link">Register Here.</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</content>

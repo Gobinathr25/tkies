@@ -1,0 +1,1251 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+
+/** Custom css **/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+@font-face 
+{
+  font-family: 'OpenSans-Regular' ;
+  src: url('../../assets/font/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face 
+{
+  font-family: 'OpenSans-ExtraBold' ;
+  src: url('../../assets/font/OpenSans-ExtraBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-SemiBold' ;
+  src: url('../../assets/font/OpenSans-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-Bold' ;
+  src: url('../../assets/font/OpenSans-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo-Bold' ;
+  src: url('../../assets/font/Archivo-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Medium' ;
+  src: url('../../assets/font/Archivo-Medium.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Regular' ;
+  src: url('../../assets/font/Archivo-Regular.ttf') format('truetype');	
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-SemiBold' ;
+  src: url('../../assets/font/Archivo-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	background: #f0f1f5;
+}
+
+a
+{
+	text-decoration:none !important;
+}
+.customBgnav
+{
+	background:white !important;
+	padding-bottom:0px;
+}
+.headerRightMenu li a
+{
+	padding:0px 5px;
+	color: black;
+}
+.logo
+{
+
+    padding: 0px 15px 0px 0px;
+}
+.bannerImage
+{
+  background-image: url(../../assets/images/pic3.png);
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+	  height:461px;
+	  position:relative;
+}
+a.left.carousel-control {
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    color: black;
+    font-size: 30px;
+    transform: translate(50%, -50%);
+    font-weight: 300;
+}
+a.right.carousel-control {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    color: black;
+    font-size: 30px;
+    transform: translate(50%, -50%);
+    font-weight: 300;
+}
+img.flag-icon {
+    width: 25px;
+}
+.bookingTabs
+{
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.overlayBox
+{
+	background:rgba(42,36,61,0.7);
+	padding: 24px 0px;
+    color: white;
+	height:145px;
+}
+.bannerImgText h4
+{
+	position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%);
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+ .advance-option select 
+ {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 12px;
+    color: #8bc34a;
+    text-transform: uppercase;
+	 width: auto;
+}
+.footerHeading 
+{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.footerSection ul 
+{
+    padding: 0px;
+    list-style: none;
+}
+.footerSection ul li 
+{
+    margin-bottom: 10px;
+}   
+.leftMenu li.nav-item.active {
+    border-bottom: 4px solid;
+    color: #d32d9c;
+    margin-bottom: -14px;
+    z-index: 1;
+}
+.footerSection button {
+    background: #421b60;
+}
+.footerSection button:hover
+{
+    background: #2c1041;
+}
+.leftMenu li.nav-item.active a {
+    color: #d32d9c ;
+} 
+.headerRightMenu li.nav-item.active a {
+    color: #7b1fa2 ;
+}
+.customTab {
+    margin-bottom: 10px;
+    border-bottom: 0px;
+}
+.plan-icon 
+{
+    transform: rotate(310deg);
+}
+ul.nav.nav-tabs.customTab .nav-link.active 
+{
+    background: rgba(54,48,73,0.7);
+    border: none;
+    color: white;
+}
+ul.nav.nav-tabs.customTab .nav-link
+{
+	background: rgba(101,53,126,0.7);
+    color: white;
+	margin-right:5px;
+}
+ul.nav.nav-tabs.customTab .nav-link i 
+{
+    margin-right: 10px;
+}
+ul.nav.nav-tabs.customTab .customTabActive
+{
+	position: relative;
+}
+ul.nav.nav-tabs.customTab .customTabActive:after {
+	top: 94%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(52, 46, 72, 0);
+	border-top-color: rgba(54,48,73,0.7);
+	border-width: 10px;
+	margin-left: -10px;
+}
+.has-search .form-control {
+    font-size: 12px;
+    padding: 24px 0px 12px 10px;
+}
+.has-search .form-control-feedback 
+{
+    top: 5px;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 20px;
+    height: 25px;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    left: 20px;
+}
+ul.radioTabs.list-inline label {
+    position: inherit;
+    padding-left: 10px;
+    padding-top: 0px;
+    font-size: 14px;
+}
+.box label
+{
+	position: absolute;
+    color: gray;
+    padding: 3px 0px 0px 10px;
+    font-size: 9px;
+	z-index:9;
+}
+.has-search .form-control {
+    font-size: 12px;
+    padding: 23px 0px 12px 10px;
+}
+.has-search .form-control-feedback 
+{
+    top: 5px;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 20px;
+    height: 25px;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    left: 20px;
+}
+.has-select .form-control {
+    font-size: 12px;
+    padding-left: 30PX;
+    height: 37PX;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+.form-group.has-search.m-0 i {
+    width: 15px;
+    height: 15px;
+    top: 15px;
+    position: absolute;
+    left: 7px;
+    color: #949494;
+    font-size: 15px;
+}
+.flightRadio LABEL {
+    /* COLOR: GRAY !IMPORTANT; */
+    font-size: 12px !IMPORTANT;
+    line-height: 10px;
+    color: #2c2e35 !IMPORTANT;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+button.doneBtn 
+{
+    float: right;
+    background: #7B1FA2;
+    font-size: 12px !IMPORTANT;
+    /* line-height: 10px; */
+    /* color: #2c2e35 !IMPORTANT; */
+    font-family: "Archivo";
+    font-weight: 400;
+    /* margin-bottom: 0px; */
+    /* margin-top: 10px; */
+    padding: 4px 15px;
+    border: 0px;
+    color: white;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.has-search.has-select label {
+    padding-left: 30px;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover
+{
+	border:none ;
+}
+ul.list-inline.social-buttons.pl-0 li a {
+    color: gray;
+}
+ul.list-inline.social-buttons.pl-0 li {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid gray;
+    border-style: dotted;
+    line-height: 30px;
+}
+.footerSection li a,.copyRight li a 
+{
+	color:gray;
+}
+img.float-left.call-icon 
+{
+    width: 30px;
+}
+.callUs
+{
+	font-weight: bold;
+    font-size: 14px;
+    color: lightgray;
+    margin-top: 3px;
+}
+.footerSection input
+{
+	background:white;
+	border:none;
+	font-size:12px;
+	border-radius:0px;
+}
+.footerSection button {
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    border-radius: 0px;
+}
+.hotelImg {
+    position: relative;
+}
+.hotelImgInside {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    padding: 10px;
+}
+.hotelImgInside p {
+    margin-bottom: 0;
+}
+.contentLeft {
+    float: left;
+}
+.hotelContent {
+    background: white;
+    border: 1px solid lightgray;
+    padding: 10px;
+    float: left;
+	width: 100%;
+}
+.contentRight{
+    float: right;
+}
+.contentLeft ul {
+    padding-left: 0px;
+    font-size: 9px;
+    list-style: none;
+}
+.contentRight p {
+    margin-bottom: 8px;
+}
+.contentRight h5 {
+    color: #8bc34a;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.contentRight button {
+    background: #421b60;
+    border: none;
+    /* text-transform: uppercase; */
+    color: white;
+    padding: 4px 10px;
+    cursor:pointer;
+}
+.contentRight button:hover
+{
+    background: #2c1041;
+}
+.overlayLayer {
+    position: absolute;
+    background: linear-gradient(7deg, rgba(3, 0, 60, 0.5) 0%, rgba(78, 37, 109, 0.5) 35%, rgba(255, 255, 255, 0.6) 100%);
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    /* line-height: 20px; */
+    display: inline-block;
+    color: #666;
+    font-size: 12px;
+    color: white;
+    /* margin-bottom: -20px; */
+}
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid a8b9df;
+    border-radius: 100%;
+    background: #a8b9df;
+    top: 4px;
+}
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #7b1fa2;
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.formFields {
+    padding-right: 2px !important;
+}
+.customBtn
+{
+	background:blue;
+}
+input.btn.btn-danger.form-control.customBtn 
+{
+    background: #7B1FA2;
+    border: 0px;
+    cursor:pointer;
+}
+.ratingStyle i
+{
+	color:#8bc34a;
+}
+img.hotelIcon {
+    width: 15px;
+}
+section.whyUS {
+    background: #272727;
+    padding: 46.5px 0px;
+}
+header
+{
+    font-size:12px;
+}
+footer.py-5 
+{
+    border-top: 4px solid #8bc34a;
+    font-size:12px;
+    background:#f0f1f5;
+}
+.backgroundHR
+{
+  background: #f0f1f5;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
+
+section.copyRight {
+  font-size: 12px;
+}
+section
+{
+  background:#f0f1f5;
+  font-size: 12px;
+}
+/**Traveller class dropdown**/
+.travellerClassDropdown {
+    width: 226px;
+    background-color: #ffffff;
+    border: 0.4320000112056732px solid #2c2e35;
+    margin-top: 15px;
+    padding: 18px 18px;
+}
+#dLabel 
+{
+  text-align: left;
+}
+header 
+{
+    border-bottom: 4px solid #1d2645;;
+}
+/** Login Form**/
+section.loginPage 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+.google-btn {
+    height: 30px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-right: 5%;
+    position: relative;
+	float:left;
+	border:1px solid gray;
+}
+.google-btn .google-icon-wrapper 
+{
+    position: absolute;
+    width: 30px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.google-btn .google-icon 
+{
+    margin-top: 5px;
+    width: 17px;
+    height: 17px;
+}
+.google-btn .btn-text {
+  float: right;
+  margin: 11px 11px 0 0;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-family: "Roboto";
+}
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
+.google-btn:active {
+  background: #1669F2;
+}
+.socailBtn.google-btn.facebook-btn p {
+    left: 36px;
+	color:gray;
+}
+
+.google-btn p {
+    color: white;
+    position: absolute;
+    top: 8px;
+    left: 38px;
+    font-size: 7px;
+    margin-bottom: 0px;
+}
+.socailBtn.google-btn.facebook-btn 
+{
+    margin-right: 0px;
+	background:white;
+}
+.arrow-bottom {
+    width: 100%;
+    background-color: #7B1FA2;
+    color: #fff;
+    /* padding: 20px; */
+    position: relative;
+    HEIGHT: 142PX;
+	border-radius: 6px 6px 0px 0px;
+}
+.arrow-bottom.arrow-bottom-border:after 
+{
+    content: " ";
+    position: absolute;
+    right: 50%;
+    bottom: -9px;
+    border-top: 10px solid #7B1FA2;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: none;
+    /* transform: translate(0%,-50%); */
+    left: 47%;
+}
+.loginFormdiv
+{
+	width: 389px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.loginForm
+{
+	background:white;
+    margin-top: 15px;
+
+}
+.loginForm .primaryText
+{
+	FONT-SIZE: 17PX;
+    COLOR: #2c2e35;
+    FONT-FAMILY: Archivo;
+    font-weight: 600;
+    MARGIN-BOTTOM: 0PX;
+}	
+.loginForm .SecondayText
+{
+	font-size: 12px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+} 
+.loginForm form
+{
+	padding: 0px 55px;
+    width: 100%;
+}
+.loginForm input
+{
+	font-size: 12px;
+    color: #d8d9da;
+    font-family: "Archivo";
+    font-weight: 400;
+        MARGIN-BOTTOM: 10px !important;
+}
+.checkboxForgetl 
+{
+	font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.loginForm button 
+{
+    /*width: 278px;*/
+    height: 28px;
+    border-radius: 14px;
+    background-color: #7b1fa2;
+    MARGIN: 0PX AUTO;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+  margin-bottom: 10px;
+  cursor:pointer;
+}
+.loginForm button :hover
+{
+  background:#2c1041;
+}
+
+.loginForm link
+{
+	color: #00b9f2;
+}
+.registrationFormDiv
+{
+	width: 776px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+    height:505px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.registrationLeftDiv 
+{
+    width: 388px;
+    float: left;
+    background: white;
+    border-radius: 6px 0px 0px 6px;	
+}
+.registrationIcon
+{
+	height: 142PX;
+}
+.registrationIcon img 
+{
+    width: 96px;
+    height: 96px;
+    margin: 23px 0px;
+}
+.checkboxForgetl a 
+{
+    color: #343630;
+}
+.registrationRightDiv
+{
+    width: 388px;
+    background:linear-gradient(184deg, rgba(69, 39, 160, 0.5) 0%, rgba(69, 39, 160, 0.5) 9%, rgba(123, 31, 162, 0.9) 100%), url("../../assets/images/popup/bg-registration.png");
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+	float:right;
+    padding: 62px 32px;
+    color: white;
+	height:505px;
+	border-radius: 0px 6px 6px 0px;
+}
+.registrationRightDiv .primaryText
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "Archivo";
+	font-weight: 600;
+}
+.registrationRightDiv .secondayText
+{
+	font-size: 12px;
+color: #ffffff;
+font-family: "Archivo";
+font-weight: 400;
+}
+ul.RegistrationPoints {
+    padding-left: 25px;
+    padding-top: 20px;
+	
+}
+ul.RegistrationPoints li {
+    margin-bottom: 10px;
+}
+.border-botted 
+{
+    border: 0.1px dotted white;
+}
+/**My account drop down**/
+.accountDropdown
+{
+	width: 152px !important;
+    height: 112px;
+    padding: 15px 10px;
+    font-size: 10px;
+	box-shadow: 0px 0px 15px #e2b2f7;
+    border: 0px;
+    margin-top: 10px;
+}
+.accountDropdown.arrow:after 
+{
+    content: " ";
+    position: absolute;
+    right: 55px;
+    top: -5px;
+    border-top: none;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid #ffffff;
+}
+.travellerClassDropdown.arrow-top:after 
+{
+    content: " ";
+    position: absolute;
+    left: 95px;
+    top: -7px;
+    border-top: none;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-bottom: 8px solid #ffffff;
+}
+.accountDropdown button {
+    clear: both;
+    width: 100%;
+    width: 133px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: #7b1fa2;
+    border: 0px;
+    font-size: 10px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 400;
+	
+}
+.accountDropdown button :hover
+{
+  background:#2c1041;
+}
+.profileText li {
+    font-size: 10px;
+    color: #6c6c6c;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.profileSection 
+{
+    margin-bottom: 10px;
+    width: 100%;
+    FLOAT: LEFT;
+}
+.profileImg 
+{
+    WIDTH: 30%;
+    FLOAT: LEFT;
+    MARGIN-RIGHT: 10%;
+    TEXT-ALIGN: CENTER;
+}
+.profileText 
+{
+    float: right;
+    WIDTH: 60%;
+}
+.profileImg img 
+{
+    width: 30px;
+}
+.profileText UL 
+{
+    PADDING-LEFT: 0PX;
+}
+
+.accountDropdown p.secondaryText {
+    font-size: 10px;
+    margin-top: 8px;
+    font-family: auto;
+    font-size: 7.5px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    text-align: center;
+}
+.accountDropdown a.link 
+{
+	color: #00b9f2;
+	padding: 0px;
+}
+li.clearfix.adultCol 
+{
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+}
+.adultColLeft p {
+    font-size: 12px;
+    line-height: 10px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.adultColRight li i {
+    position: initial !important;
+    font-size: 8px !important;
+    border: 1px solid black;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2c2e35 !important;
+
+	width:20px !important;
+	height:20px !important;
+	border-radius:2px;
+}
+.adultColRight li {
+    margin-right: 3px !important;
+}
+.adultColLeft span {
+    color: lightgray;
+}
+.more:after {
+    content: none;
+}
+.headerRightMenu
+{
+	margin-top: 15px !important;
+}
+.headerRightMenu li a
+{
+	padding: 0px 10px 10px;
+}
+/***/
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+.styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    background: #eae9e9;
+}
+.styled-checkbox:hover + label:before {
+  background: lightgray;
+}
+.styled-checkbox:checked + label:before {
+  background: #7b1fa2;
+}
+.styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 8px;
+    background: white;
+    width: 1.5px;
+    height: 1.5px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.socialBtngf
+{
+	width:100%;
+	padding: 0px 55px;
+	float: left;
+	margin-bottom:20px;
+}
+.socailBtn 
+{
+    width: 47.5%;
+}
+.loginIcon.arrow-bottom img 
+{
+    width: 70px;
+    height: auto;
+    margin: 35px 0px;
+    z-index: 9;
+}
+img.icons 
+{
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    z-index: 9;
+}
+ul.addRoomList 
+{
+    list-style: none;
+    padding: 0px;
+}
+.addRoomList p
+{
+	font-size: 12px;
+    line-height: 10px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+input.btn.btn-danger.form-control.customBtn:hover 
+{
+  background:#2c1041;
+  outline:none !important;
+}
+/**Responsive Css**/
+@media (min-width: 320px) and (max-width: 480px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+	}
+	.carousel-control
+	{
+		display:none;
+	}
+	.registrationFormDiv
+	{
+		width:100%;
+	}
+}
+@media (min-width: 480px) and (max-width: 767px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+	}
+	.carousel-control
+	{
+		display:none;
+	}
+}
+@media (min-width: 768px) and (max-width: 1023px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1199px)
+{
+	.headerRightMenu li
+	{
+		width:inherit;
+		padding:10px 0px;
+		border:0px !important;
+	}
+}
+/** Dropdown select **/
+.oneroom {
+    padding: 6px 14px;
+    vertical-align: top;
+}
+.roomrow {
+    display: table;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+    display: table-cell;
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+    margin: 0px 10px;
+    background: transparent;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+
+.psngrpopover
+{
+    display:none;
+    top: 55px;
+    right:0;
+    position:absolute;
+    width:283px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    z-index: 9;
+    background: white;
+}
+.posrel 
+{
+    position:relative;
+}
+.fa-caret-up:before {
+    content: "\f0d8";
+    color: white;
+}
+.form-check
+{
+    padding-left:0px;
+}
+.roomrow label
+{
+    color:gray !important;
+}
+/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 55px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}
+a.quantity__plus.quantity__plusFlight {
+    border-radius: 0px;
+}
+a.quantity__minus.quantity__minusFlight {
+    margin: 2px;
+}
+.roomrow.roomrowflight {
+    display: table;
+}
+.popover-body
+{
+  background-color: white;
+}
+.popover-body:after,.psngrpopover:after
+{
+	content: " ";
+    position: absolute;
+    top: -10px;
+    border-top: none;
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-bottom: 10px solid white;
+    left: 48%;
+}
+

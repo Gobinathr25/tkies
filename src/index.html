@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Journey Ticket</title>
+  <base href="/">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+    <!-- Custom fonts for this template -->
+    <link href="./assets/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/bootstrap-popover-x.min.css">
+    <link rel="stylesheet" href="./assets/css/hotelDeatils.css">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    function MyFunction() {
+      var x = document.getElementById("MyDIV");
+      var y = document.getElementById("#clickme");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "Hide Details";
+      } else {
+        x.style.display = "none";
+        y.text = "Flight Details";
+      }
+  
+    }
+   function MyFunction1(id) {
+      var x = document.getElementById("MyDIV"+id);
+      var y = document.getElementById("clickme");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "Hide Details";
+      } else {
+        x.style.display = "none";
+        y.text = "Flight Details";
+      }
+  
+    }
+  
+  
+    
+  
+  
+  /* Filter */
+  
+   function myfunction1() {
+      var x = document.getElementById("myfilter1");
+      var y = document.getElementById("click1");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "hide";
+      } else {
+        x.style.display = "none";
+        y.text = "show";
+      }
+  
+    }
+  
+  function myfunction2() {
+      var x = document.getElementById("myfilter2");
+      var y = document.getElementById("click2");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "hide";
+      } else {
+        x.style.display = "none";
+        y.text = "show";
+      }
+  
+    }
+  
+    
+  function myfunction3() {
+      var x = document.getElementById("myfilter3");
+      var y = document.getElementById("click3");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "hide";
+      } else {
+        x.style.display = "none";
+        y.text = "show";
+      }
+  
+    }
+  
+    
+  function myfunction4() {
+      var x = document.getElementById("myfilter4");
+      var y = document.getElementById("click4");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "hide";
+      } else {
+        x.style.display = "none";
+        y.text = "show";
+      }
+  
+    }
+  
+    
+  function myfunction5() {
+      var x = document.getElementById("myfilter5");
+      var y = document.getElementById("click5");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.text = "hide";
+      } else {
+        x.style.display = "none";
+        y.text = "show";
+      }
+  
+    }
+    </script>
+	
+<script type="text/javascript" src="./assets/js/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/jquery-ui.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="./assets/js/bootstrap-popover-x.min.js" type="text/javascript"></script>
+<script src="./assets/js/custom-new.js" type="text/javascript"></script>
+<script src="./assets/js/custom-hotelListPopover.js" type="text/javascript"></script>
+
+<script>
+  $(document).ready(function () {
+  var dropDownOpened = false;
+   $(document).on('click', '#select_psngr1', function (e) {
+      e.preventDefault();
+     $('.psngrpopover').toggle();
+     dropDownOpened = true;
+     });
+  $('.children_minus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.children_input2').text();
+         if (value > 0) {
+             value--;
+         }
+         $('.children_input2').text(value);
+     calculatePassenger();
+     });
+ 
+     $('.children_plus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.children_input2').text();
+         value++;
+         $('.children_input2').text(value);
+     calculatePassenger();
+     });
+ 
+     $('.adult_minus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.adult_input2').text();
+         if (value > 1) {
+             value--;
+         }
+         $('.adult_input2').text(value);
+     calculatePassenger();
+     });
+ 
+     $('.adult_plus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.adult_input2').text();
+         value++;
+         $('.adult_input2').text(value);
+     calculatePassenger();
+     });
+ 
+     $('.infant_minus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.infant_input2').text();
+         if (value > 0) {
+             value--;
+         }
+         $('.infant_input2').text(value);
+     calculatePassenger();
+     });
+ 
+     $('.infant_plus2').click(function (e) {
+         e.preventDefault();
+         var value = $('.infant_input2').text();
+         value++;
+         $('.infant_input2').text(value);
+     calculatePassenger();
+     });
+   
+                
+             
+   $("input[type='radio'][name='exampleRadiosone']").on('change', function() {
+     selectedVal = this.value;
+   calculatePassenger(selectedVal);
+   });
+ 
+   
+   
+ function calculatePassenger(radioValue) {
+     var person = 0;
+     var radioValue = $("input[type='radio'][name='exampleRadiosone']:checked").val();
+         person = parseInt(person) + parseInt($('.children_input2').text()) + parseInt($('.adult_input2').text()) + parseInt($('.infant_input2').text());
+       
+     var _selectText =  parseInt(person) + ' Passengers'+','+ (radioValue);
+     $("#select_psngr1").val(_selectText);
+ }
+     $(document).on('click', '.done1', function (e) {
+       e.preventDefault();
+         $('.psngrpopover').hide();
+         
+     });	
+     $(document).on('click', function (e){
+             var container = $('.posrel');
+             if (dropDownOpened) {
+                 if ( !container.is(e.target) && container.has(e.target).length === 0 ) {
+                      $('.psngrpopover').hide();
+                 }
+             }
+ 
+         });
+    });
+  </script>
+ <script>
+	// optional
+		$('#blogCarouselFlight').carousel({
+				interval: 5000
+		});
+  </script>
+   
+  <script>
+	// optional
+		$('#blogCarousel').carousel({
+				interval: 5000
+		});
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!--Jquery ui js-->
+  </body> 
+  
+  </html>
+  

@@ -1,0 +1,102 @@
+
+    @import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+
+    /** Custom css **/
+    
+    @import url('https://fonts.googleapis.com/css?family=Roboto:500');
+    @font-face 
+    {
+      font-family: 'OpenSans-Regular' ;
+      src: url('../../assets/font/OpenSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face 
+    {
+      font-family: 'OpenSans-SemiBold' ;
+      src: url('../../assets/font/OpenSans-SemiBold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face 
+    {
+      font-family: 'OpenSans-Bold' ;
+      src: url('../../assets/font/OpenSans-Bold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Archivo-Bold' ;
+      src: url('../../assets/font/Archivo-Bold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-Medium' ;
+      src: url('../../assets/font/Archivo-Medium.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-Regular' ;
+      src: url('../../assets/font/Archivo-Regular.ttf') format('truetype');	
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-SemiBold' ;
+      src: url('../../assets/font/Archivo-SemiBold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    body,html
+    {
+        font-family: 'Open Sans', sans-serif;
+        font-size:12px;
+        background: #f0f1f5 !important;
+    }
+   
+    .card {
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 34, 51, 0.1);
+        box-shadow: 2px 4px 10px 0 rgba(0, 34, 51, 0.05), 2px 4px 10px 0 rgba(0, 34, 51, 0.05);
+        border-radius: 0.15rem;
+    }
+    
+    /* Tabs Card */
+    
+    .tab-card {
+      border:1px solid #eee;
+    }
+    
+    .tab-card-header {
+      background:none;
+    }
+    /* Default mode */
+    .tab-card-header > .nav-tabs {
+      border: none;
+      margin: 0px;
+    }
+    .tab-card-header > .nav-tabs > li {
+      margin-right: 2px;
+    }
+    .tab-card-header > .nav-tabs > li > a {
+      border: 0;
+      border-bottom:2px solid transparent;
+      margin-right: 0;
+      color: #737373;
+      padding: 2px 15px;
+    }
+    
+    .tab-card-header > .nav-tabs > li > a.show {
+        border-bottom:2px solid #007bff;
+        color: #007bff;
+    }
+    .tab-card-header > .nav-tabs > li > a:hover {
+        color: #007bff;
+    }
+    
+    .tab-card-header > .tab-content {
+      padding-bottom: 0;
+    }

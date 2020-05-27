@@ -1,0 +1,1102 @@
+<content>
+	<!--Section Banner Start-->
+	<section class="bannerImage">
+		<div class="bannerImgText text-uppercase text-center text-white ">
+			<h4 class="mt-3">Book Flight and Hotel Online</h4>
+		</div>
+		<div class="bookingTabs">
+			<div class="container">
+				<div class="col-12 p-0">
+					<ul class="nav nav-tabs customTab" role="tablist">
+						<li class="nav-item customTabActive text-center">
+							<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+								<i class="fa fa-plane fa-rotate-270" aria-hidden="true"></i> Flight</a>
+						</li>
+						<li class="nav-item text-center">
+							<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+								<img src="../../assets/images/banner/hotel.png" alt="hotelIcon" class="hotelIcon" /> Hotel</a>
+						</li>
+
+					</ul>
+					<!-- Tab panes -->
+				</div>
+			</div>
+			<div class=" overlayBox">
+				<div class="container">
+					<div class="tab-content">
+						<div class="tab-pane active" id="tabs-1" role="tabpanel">
+							<div class=" box arrow-top1">
+								<form id="MyForm" #createForm=ngForm (ngSubmit)="createForm.form.valid && onSubmit(createForm.value)" novalidate>
+									<ul class=" list-inline ">
+										<li class="list-inline-item">
+											<input type="radio" required id="test1" name="search_type" value="2" class="flightRadioBtn" checked [(ngModel)]="model_frm.search_type"
+											 #search_type="ngModel">
+											<label for="test1">Returntrip</label>
+										</li>
+										<li class="list-inline-item">
+											<input type="radio" required id="test2" name="search_type" value="1" class="flightRadioBtn" [(ngModel)]="model_frm.search_type"
+											 #search_type="ngModel">
+											<label for="test2">Oneway</label>
+										</li>
+										<li class="list-inline-item">
+											<input type="radio" required id="test3" name="search_type" value="3" class="flightRadioBtn" [(ngModel)]="model_frm.search_type"
+											 #search_type="ngModel">
+											<label for="test3">Multicity</label>
+										</li>
+										<div *ngIf="createForm.submitted && search_type.invalid" class="highlight-error">
+											<div *ngIf="search_type.errors.required">*Journey type is required
+											</div>
+										</div>
+									</ul>
+									<div id="showOne" class="myDiv">
+										<div class="row mx-1">
+											<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+												<div class="form-group has-search has-select m-0">
+													<img src="../../assets/images/banner/flightIcon.png" alt="icon" class="icons" />
+													<label>Depart From</label>
+													<input type="text" name="origin1" (keyup)="getUserIdsFirstWay($event)" id="userIdFirstWay" list="dynmicUserIds" placeholder="(EBL) Erbil International airportt"
+													 class="form-control" [(ngModel)]="model_frm.origin1" #origin1="ngModel" [ngClass]="{ 'is-invalid': createForm.submitted && origin1.invalid }"
+													 required autocomplete="off" />
+													<datalist id="dynmicUserIds">
+														<option *ngFor="let item of airPortList1" [value]="item">{{item}}</option>
+													</datalist>
+													<div *ngIf="createForm.submitted && origin1.invalid" class="invalid-feedback">
+														<div *ngIf="origin1.errors.required">origin is required</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+												<div class="form-group has-search has-select m-0">
+													<img src="../../assets/images/banner/flightIcon.png" alt="icon" class="icons" />
+													<label>Going To</label>
+													<input type="text" name="goingto" (keyup)="getUserIdsFirstWay1($event)" id="userIdFirstWay1" list="dynmicUserIds1" placeholder="Enter any city/airport"
+													 class="form-control" [(ngModel)]="model_frm.goingto" #goingto="ngModel" [ngClass]="{ 'is-invalid': createForm.submitted && goingto.invalid }"
+													 required autocomplete="off" />
+													<datalist id="dynmicUserIds1">
+														<option *ngFor="let item of airPortList1" [value]="item">{{item}}</option>
+													</datalist>
+													<div *ngIf="createForm.submitted && goingto.invalid" class="invalid-feedback">
+														<div *ngIf="goingto.errors.required">Going to is required</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+												<div class="form-group has-search has-select  m-0">
+													<img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+													<label>Departure</label>
+													<input class="form-control" placeholder="yyyy-mm-dd" name="departure_date" [(ngModel)]="model_frm.departure_date" #departure_date="ngModel"
+													 [ngClass]="{ 'is-invalid': createForm.submitted && departure_date.invalid }" (click)="d.toggle()" ngbDatepicker
+													 [minDate]="dep_minDate" #d="ngbDatepicker" required autocomplete="off">
+													<div *ngIf="createForm.submitted && departure_date.invalid" class="invalid-feedback">
+														<div *ngIf="departure_date.errors.required">Departure Date is required</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+												<div class="form-group has-search  has-select m-0">
+													<img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+													<label>Return</label>
+													<input class="form-control" placeholder="yyyy-mm-dd" name="return_date" [(ngModel)]="model_frm.return_date" #return_date="ngModel"
+													 [ngClass]="{ 'is-invalid': createForm.submitted && return_date.invalid }" (click)="rd.toggle()" ngbDatepicker
+													 [minDate]="ret_minDate" #rd="ngbDatepicker" [required]="model_frm.search_type == '2'" autocomplete="off">
+													<div *ngIf="createForm.submitted && return_date.invalid" class="invalid-feedback">
+														<div *ngIf="return_date.errors.required">Return Date is required</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-12  mb-3 pl-0 formFields">
+												<div class="form-group has-search has-select m-0 dropdown">
+
+													<img src="../../assets/images/banner/traveller.png" alt="icon" class="icons" />
+													<label>Traveller,Class</label>
+													<div class="form-group posrel">
+														<label>Travellar</label>
+														<input type="text" class="form-control" placeholder="1 passenger,Economy" id="select_psngr1" autocomplete="off">
+
+														<div id="myPopover" class="psngrpopover">
+															<div class="popover-body popover-content">
+																<div class="oneroom oneroomFlight form-row">
+
+																	<div class="roomrow roomrowflight bor-bot bor-botflight ">
+																		<div class="celroe celroeflight col-xs-4">
+																			<span class="agemns agmnsflight adult_input2 adult_input2flight">1</span> Adult
+																		</div>
+																		<div class="celroe celroeflight  col-xs-8">
+																			<div class="quantity quantityFlight">
+																				<a href="#" class="quantity__minus quantity__minusFlight adult_minus2 adult_minus2Flight">
+																					<span>-</span>
+																				</a>
+																				<a href="#" class="quantity__plus quantity__plusFlight adult_plus2 adult_plus2Flight">
+																					<span>+</span>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="roomrow roomrowflight bor-bot bor-botflight">
+																		<div class="celroe celroeflight col-xs-4">
+																			<span class="agemns agmnsflight children_input2 children_input2flight">0</span> Child 2-12 years
+																		</div>
+																		<div class="celroe celroeflight col-xs-8">
+																			<div class="quantity quantityFlight">
+																				<a href="#" class="quantity__minus  quantity__minusFlight children_minus2 children_minus2Flight">
+																					<span>-</span>
+																				</a>
+																				<a href="#" class="quantity__plus quantity__plusFlight children_plus2 children_plus2Flight">
+																					<span>+</span>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="roomrow roomrowflight bor-bot bor-botflight">
+																		<div class="celroe celroeflight col-xs-4">
+																			<span class="agemns agmnsflight infant_input2 infant_input2flight">0</span> Infant below 2 years
+																		</div>
+																		<div class="celroe celroeflight col-xs-8">
+																			<div class="quantity quantityFlight">
+																				<a href="#" class="quantity__minus quantity__minusFlight infant_minus2 infant_minus2Flight">
+																					<span>-</span>
+																				</a>
+																				<a href="#" class="quantity__plus quantity__plusFlight infant_plus2 infant_plus2Flight">
+																					<span>+</span>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="roomrow roomrowflight mt-2">
+																		<div class="form-check form-checkFlight">
+																			<input class="form-check-input form-check-inputFlight" type="radio" name="exampleRadiosone" id="exampleRadios5" value="Economy"
+																			 checked ngModel>
+																			<label class="form-check-label form-check-labelFlight" for="exampleRadios5" style="padding-left:30px !important;">
+																				Economy
+																			</label>
+																		</div>
+																		<div class="form-check form-checkFlight">
+																			<input class="form-check-input form-check-inputFlight" type="radio" name="exampleRadiosone" id="exampleRadios6" value=" Premium Economy"
+																			 ngModel>
+																			<label class="form-check-label form-check-labelFlight" for="exampleRadios6" style="padding-left:30px !important;">
+																				Premium Economy
+																			</label>
+																		</div>
+																		<div class="form-check form-checkFlight">
+																			<input class="form-check-input form-check-inputFlight" type="radio" name="exampleRadiosone" id="exampleRadios7" value="Bussiness"
+																			 ngModel>
+																			<label class="form-check-label form-check-labelFlight" for="exampleRadios7" style="padding-left:30px !important;">
+																				Bussiness
+																			</label>
+																		</div>
+																		<div class="form-check form-checkFlight">
+																			<input class="form-check-input form-check-inputFlight" type="radio" name="exampleRadiosone" id="exampleRadios8" value="First Class"
+																			 ngModel>
+																			<label class="form-check-label form-check-labelFlight" for="exampleRadios8" style="padding-left:30px !important;">
+																				First Class
+																			</label>
+																		</div>
+																	</div>
+
+																</div>
+
+																<div class="roomrow roomrowflight" style="text-align:right;">
+																	<button style="border: 1px solid  #298eefe3;text-transform:initial;color: #fff;font-size: 15px;width: 40%;padding: 6px 20px;background:#7B1FA2;"
+																	 type="button" class="btn  col-12 done1 done1Flight">Done</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-1 col-md-1 col-sm-12 px-0">
+												<input type="submit" class="btn btn-danger form-control customBtn" name="submit" value="Search" style="height:37px;" />
+											</div>
+										</div>
+
+									</div>
+								</form>
+								<div id="showTwo" class="myDiv">
+								</div>
+								<div id="showThree" class="myDiv">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tabs-2" role="tabpanel">
+							<div class=" box arrow-top2">
+								<form id="MyForm" action="" method="post">
+									<div class="row mx-1">
+										<div class="col-lg-4 col-md-4 col-sm-12 pr-0 mb-3 pl-0 formFields">
+											<div class="form-group has-search has-select m-0">
+												<img src="../../assets/images/banner/location.png" alt="icon" class="icons" />
+												<label>City,Area Of The Hotel</label>
+												<input type="text" name="name" placeholder="DXB - Dubai Airport, United Arab " class="form-control" />
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+											<div class="form-group has-search has-select has-select m-0">
+												<img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+												<label>Departure</label>
+												<input type="text" id="datepicker-3" placeholder="DD/MM/YYYY" class="form-control" />
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+											<div class="form-group has-search  has-select m-0">
+												<img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+												<label>Return</label>
+												<input type="text" id="datepicker-4" placeholder="DD/MM/YYYY" class="form-control" />
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-12  mb-3 pl-0 formFields">
+											<div class="form-group has-search has-select m-0 dropdown">
+												<img src="../../assets/images/banner/traveller.png" alt="icon" class="icons" />
+												<label>Traveller,Class</label>
+												<!--<button id="dLabel" class="dropdown-select form-control" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Select
+									<span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu travellerClassDropdown arrow arrow-top" aria-labelledby="dLabel">
+									<ul class="addRoomList">
+									<p class="border-bottom mb-2 pb-2">Room 1</p>
+									<li class="clearfix adultCol border-bottom mb-2">
+										<div class="w-100">
+											<div class="float-left adultColLeft">
+												<p>1 Adult</p>
+											</div>
+											<div class="float-right adultColRight">
+												<ul class="list-inline">
+													<li class="list-inline-item"><span><i class="fa fa-minus" aria-hidden="true"></i></span></li>
+													<li class="list-inline-item"><span><i class="fa fa-plus" aria-hidden="true"></i></span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="clearfix adultCol">
+										<div class="w-100">
+											<div class="float-left adultColLeft">
+												<p>0 Child 2 - 12 years</p>
+											</div>
+											<div class="float-right adultColRight">
+												<ul class="list-inline">
+													<li class="list-inline-item"><span><i class="fa fa-minus" aria-hidden="true"></i></span></li>
+													<li class="list-inline-item"><span><i class="fa fa-plus" aria-hidden="true"></i></span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									</ul>
+									<ul class="addRoomList">
+									<div class="w-100 border-bottom mb-2 pb-2 float-left">
+									<p class="float-left">Room 2</p>
+									<p class="float-right"><a href="">Remove</a></p>
+									</div>
+									<li class="clearfix adultCol border-bottom mb-2">
+										<div class="w-100">
+											<div class="float-left adultColLeft">
+												<p>1 Adult</p>
+											</div>
+											<div class="float-right adultColRight">
+												<ul class="list-inline">
+													<li class="list-inline-item"><span><i class="fa fa-minus" aria-hidden="true"></i></span></li>
+													<li class="list-inline-item"><span><i class="fa fa-plus" aria-hidden="true"></i></span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="clearfix adultCol border-0">
+										<div class="w-100">
+											<div class="float-left adultColLeft">
+												<p>0 Child 2 - 12 years</p>
+											</div>
+											<div class="float-right adultColRight">
+												<ul class="list-inline">
+													<li class="list-inline-item"><span><i class="fa fa-minus" aria-hidden="true"></i></span></li>
+													<li class="list-inline-item"><span><i class="fa fa-plus" aria-hidden="true"></i></span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<p><a href="">Add Room</a></p>
+									</ul>
+									<button type="" class="clearfix doneBtn">Done</button>
+								  </ul>-->
+												<div class="form-group posrel">
+													<input type="text" class="form-control" placeholder="1 Room,1 Adult,0 Children" id="select_room" autocomplete="off">
+
+													<div class="roomcount  user-details psngrpopover">
+														<div id="divRoom1" class="oneroom user_data form-row ">
+															<div class="roomrow" style="padding: 14px;">
+																<h6 class='roomnum'>Room 1</h6>
+															</div>
+															<hr style='margin-top: 0px;margin-bottom: 0px;'>
+															<div class="roomrow">
+																<div class="celroe col-xs-5">
+																	Adults
+																	<br>
+																	<span class="agemns">Over 18 years old</span>
+																</div>
+																<div class="celroe col-xs-7">
+																	<div class="quantity ">
+																		<input id="room1AdultMinus" class="quantity__minus adult_minus" type="button" value="-">
+																		<input type="text" class="form-control quantity__input adult_input" value="1" data-val="true" data-val-number="The field NoOfAdults must be a number."
+																		 data-val-required="The NoOfAdults field is required." id="room1Adult" name="roomsNoOfAdults[]" required
+																		/>
+																		<input id="room1AdultPlus" class="quantity__plus adult_plus" type="button" value="+">
+																	</div>
+																</div>
+															</div>
+															<hr style='margin-top: 0px;margin-bottom: 0px;'>
+															<div class="roomrow">
+																<div class="celroe col-xs-5">
+																	Children
+																	<br>
+																	<span class="agemns">Up to 18 years old</span>
+																</div>
+																<div class="celroe col-xs-7">
+																	<div class="quantity ">
+																		<input id="room1ChildMinus" class="quantity__minus children_minus" type="button" value="-">
+																		<input type="text" class="form-control quantity__input children_input" data-val="true" data-val-number="The field NoOfChildren must be a number."
+																		 data-val-required="The NoOfChildren field is required." id="room1Child" name="roomsNoOfChildren[]" type="text"
+																		 value="0">
+																		<input id="room1ChildPlus" class="quantity__plus children_plus" type="button" value="+">
+																	</div>
+																</div>
+															</div>
+															<div class="roomrow">
+																<div id="divroom1ChildAges1" class="row" style="margin-left: 0;display:none;width:100%; ">
+																	<span id="rchild1"></span>
+																</div>
+															</div>
+															<hr style='margin-top: 0px;margin-bottom: 0px;'>
+														</div>
+														<div class="roomrow">
+															<div class="celroe col-xs-5" style="padding-left:12px;">
+																<a href="#" class="custombtn">Add Room</a>
+															</div>
+														</div>
+														<div class="roomrow btnrow">
+															<button type="button" class="btn  done1">Done</button>
+														</div>
+
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="col-lg-1 col-md-1 col-sm-12 px-0">
+											<input type="sumbit" class="btn btn-danger form-control customBtn" name="submit" value="Search" style="height:37px;" />
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="clearfix"></div>
+	<!--Section Banner End-->
+	<!--Find your Ideal Flight start-->
+	<section class="findFlight pt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col section-heading text-center">
+					<h4>
+						<strong>Find your Ideal Flight</strong>
+					</h4>
+					<p class="mb-4">ouers ﬂight bookings with hundreds of airlines, to destinations all around the world</p>
+				</div>
+			</div>
+			<div class="row blog text-center">
+				<div class="col-md-12">
+					<div id="blogCarouselFlight" class="carousel slide " data-ride="carousel">
+
+						<!--<ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+							<li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>-->
+
+						<!-- Carousel items -->
+						<div class="carousel-inner text-center">
+
+							<div class="carousel-item active">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/01pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/03pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/04pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+								</div>
+								<!--.row-->
+							</div>
+							<!--.item-->
+
+							<div class="carousel-item">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/01pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/03pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/04pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+								</div>
+								<!--.row-->
+							</div>
+							<!--.item-->
+
+							<div class="carousel-item">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<a href="#">
+											<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+										</a>
+									</div>
+								</div>
+								<!--.row-->
+							</div>
+
+						</div>
+						<a class="left carousel-control" href="#blogCarouselFlight" data-slide="prev">
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
+						</a>
+						<a class="right carousel-control" href="#blogCarouselFlight" data-slide="next">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</a>
+						<!--.carousel-inner-->
+					</div>
+					<!--.Carousel-->
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!--Find your Ideal Hotel End-->
+
+	<!--Find your Ideal Hotel start-->
+	<section class="findHotel pt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col section-heading text-center">
+					<h4>
+						<strong>Find Your Ideal Hotel</strong>
+					</h4>
+					<p class="mb-4">offer ﬂight bookings with hundreds of airlines, to destinations all around the world</p>
+				</div>
+			</div>
+			<div class="row blog text-center">
+				<div class="col-md-12">
+					<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+						<!--<ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+							<li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>-->
+						<!-- Carousel items -->
+						<div class="carousel-inner">
+
+							<div class="carousel-item active">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/01pic.jpg" alt="Image" style="max-width:100%;" class="img-fluid">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;" class="img-fluid">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/03pic.jpg" alt="Image" style="max-width:100%;" class="img-fluid">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p class="float-left pr-2">Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/04pic.jpg" alt="Image" style="max-width:100%;" class="img-fluid">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--.row-->
+							</div>
+							<!--.item-->
+
+							<div class="carousel-item">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/01pic.jpg" alt="Image" style="max-width:100%;" class="img-fluid">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/03pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/04pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--.row-->
+							</div>
+							<!--.item-->
+
+							<div class="carousel-item">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/01pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/02pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/03pic.jpg" alt="Image" style="max-width:100%;">
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12 hotelBlog text-left pr-0">
+										<div class="hotelImg">
+											<a href="#">
+												<img src="../../assets/images/banner/flightImg/04pic.jpg" alt="Image" style="max-width:100%;" />
+											</a>
+											<div class="overlayLayer">
+											</div>
+											<div class="hotelImgInside">
+												<p>Dedamad Ebril Hotel</p>
+												<span class="ratingStyle">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</span>
+												<p style="font-size:9px;">Very good based on 780 views</p>
+											</div>
+										</div>
+										<div class="hotelContent">
+											<div class="contentLeft">
+												<h5>Perks</h5>
+												<ul>
+													<li>Complimentary Wifi</li>
+													<li>Larger then avarage Rooms</li>
+													<li>Late Night avaialable</li>
+												</ul>
+											</div>
+											<div class="contentRight border-left pl-3">
+												<h5>$278</h5>
+												<p>Avarage per night</p>
+												<button type="button">See Details</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--.row-->
+								<!--.row-->
+							</div>
+						</div>
+						<a class="left carousel-control" href="#blogCarousel" data-slide="prev">
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
+						</a>
+						<a class="right carousel-control" href="#blogCarousel" data-slide="next">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</a>
+						<!--.carousel-inner-->
+					</div>
+					<!--.Carousel-->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Find your Ideal Hotel End-->
+	<!--Whats New section start-->
+	<section class="whatsNew py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col section-heading text-center">
+					<h4>
+						<strong>What’s New</strong>
+					</h4>
+					<p class="mb-4">Offer ﬂight bookings with hundreds of airlines, to destinations all around the world</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12 pr-0">
+					<img src="../../assets/images/banner/whtNew/image1.jpg" alt="image" class="img-fluid" style="width: 419px;" />
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12 pr-0">
+					<img src="../../assets/images/banner/whtNew/image2.jpg" alt="image" class="img-fluid" />
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12 pr-0">
+					<img src="../../assets/images/banner/whtNew/image3.jpg" alt="image" class="img-fluid" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<p class="mb-0">Cheap ﬂights are available at Journeyticket.com, one of the leading travel portals of Erbil. The company offer great
+						discounts on domestic and international ﬂight tickets. Being a reliable name in travel industry of Erbil, we focus
+						on providing smooth ﬂight booking experience to our customers. So, book air tickets at the lowest airfare by planning
+						your trip with us. You can also get all relevant information like how to get the boarding passes, difference between
+						airline tickets and boarding pass tickets, ﬂight status, arrival and departure times of the ﬂights, web check-in and
+						various information one needs to have before traveling.</p>
+					<p>If you want to book your plane tickets at no convenience fee and looking for transparency in air ticket pricing, we
+						are here to serve you with best possible offer. To reduce your ﬂight booking cost, we have tied up with several banking
+						partners. You can avail the best ﬂight ticket booking deals for all major low cost carriers of Erbil and abroad with
+						us. Last minute discounts on air ticket booking are also available with us. So, go for a journey of your preferred
+						destinations with the best airfare discounts.
+					</p>
+					<p class="mb-0">
+						<strong>How do you ﬁnd the cheapest airfare?</strong>
+					</p>
+					<p>To ﬁnd the cheapest airfare, you can visit our site or download the app and enter your departure and arrival cities
+						and ﬁnd out the cheapest days to ﬂy with our fare calendar. In compare to full service carriers, low cost airlines
+						offer cheaper fares. By considering budget airlines, you can do great savings on airline tickets.</p>
+					<p class="mb-0">
+						<strong>What is the best day of the week to buy plane tickets?</strong>
+					</p>
+					<p>As per previous ﬁndings, the best day to book cheapest ﬂight tickets was Tuesday, but it’s not anymore. As more number
+						of business travelers has started booking their ﬂights during the week, the best day to buy those tickets is now Sunday.
+						To avail more savings on ﬂight tickets, try to book on a Sunday that is more than 21 days ahead of your trip.</p>
+					<p class="mb-0">
+						<strong>Is it cheaper to book ﬂights last minute?</strong>
+					</p>
+					<p>There is a popular belief that if you book ﬂights in advance, your air tickets will be cheaper. However, contrary to
+						the popular belief, booking airline tickets late is often cheaper. As per the research, ﬂight tickets are generally
+						cheaper if booked three weeks before departure than tickets booked 6 months ahead. But, this is not necessary. The
+						price of ﬂights ﬂuctuate daily or even hourly in various cases. Many times, it changes due to the increasing demand
+						of a particular route by the passengers. So, sometimes ﬂights get cheaper while traveling closer to the travel date
+						and in some cases, it gets expensive.</p>
+					<p class="mb-0">
+						<strong>How can I ﬂy for free?</strong>
+					</p>
+					<p>At present, Journeyticket.com has an ouer to avail free ﬂight tickets worth Rs.5000 daily. However, there are many other
+						options like loyalty points, frequent ﬂyer credit cards from diuerent banks and availing free ﬂights with miles that
+						may help you in ﬂying for free.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--whats New Section End-->
+	<!--why book with us section start-->
+	<section class="whyUS  text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col section-heading text-center">
+					<h4 class=" text-center">Why Book With Us ?</h4>
+					<p>We provide you the cheapest fares for International & Domestic Flight & Hotels. www.JOURNEYTICKETS.in offer great offer,
+						some of the lowest airfares, exclusive discounts and a seamless online booking experience.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-12 text-center">
+					<img src="../../assets/images/banner/icons/1.png" alt="icon1" width="60" height="60" class="mb-3" />
+					<h4>EASY BOOKING</h4>
+					<p>We offer easy and convenient and best ﬂight & hotel bookings with attractive</p>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12 text-center">
+					<img src="../../assets/images/banner/icons/2.png" alt="icon1" width="60" height="60" class="mb-3" />
+					<h4>LOWEST PRICE</h4>
+					<p>We provide lowest rates on ﬂights & hotel reservation.</p>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12 text-center">
+					<img src="../../assets/images/banner/icons/3.png" alt="icon1" width="60" height="60" class="mb-3">
+					<h4>24X7 SUPPORT</h4>
+					<p>We are happy to assist you as our agents will be there to answer your</p>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12 text-center">
+					<img src="../../assets/images/banner/icons/4.png" alt="icon1" width="60" height="60" class="mb-3">
+					<h4>EXCITING OFFERS</h4>
+					<p>Travel related queries 24/7 We provide grate ouers & deals</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</content>

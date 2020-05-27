@@ -1,0 +1,836 @@
+<section class="flightSearch">
+  <div class="container px-0">
+    <div class="row mx-0">
+      <div class=" box arrow-top1">
+
+        <form id="MyForm" #createForm=ngForm (ngSubmit)="createForm.form.valid && onSubmit(createForm.value)" novalidate>
+          <div class="form-group">
+            <ul class="list-inline ">
+              <!-- <li class="list-inline-item" *ngFor="let item of searchTypeList">
+                <input type="radio" required class="flightRadioBtn" [(ngModel)]="model_frm.search_type" name="search_type" value="{{item.value}}"
+                  (change)="onItemChange(item)" #search_type="ngModel" /> {{item.name}}
+              </li> -->
+              <li class="list-inline-item">
+                <input type="radio" required id="test1" name="search_type" value="2" class="flightRadioBtn" [(ngModel)]="model_frm.search_type"
+                  #search_type="ngModel">
+                <label for="test1">Returntrip</label>
+              </li>
+              <li class="list-inline-item">
+                <input type="radio" required id="test2" name="search_type" value="1" class="flightRadioBtn" [(ngModel)]="model_frm.search_type"
+                  #search_type="ngModel">
+                <label for="test2">Oneway</label>
+              </li>
+              <li class="list-inline-item">
+                <input type="radio" required id="test3" name="search_type" value="3" class="flightRadioBtn" [(ngModel)]="model_frm.search_type"
+                  #search_type="ngModel">
+                <label for="test3">Multicity</label>
+              </li>
+              <div *ngIf="createForm.submitted && search_type.invalid" class="highlight-error">
+                <div *ngIf="search_type.errors.required">*Journey type is required
+                </div>
+              </div>
+            </ul>
+          </div>
+
+          <div id="showOne" class="myDiv">
+
+            <div class="row mx-1">
+              <div class="col-lg-3 col-md-3 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select m-0">
+                  <img src="../../assets/images/banner/flightIcon.png" alt="icon" class="icons" />
+                  <label>Depart From</label>
+                  <!-- <input type="text" name="name" placeholder="(EBL) Erbil International airportt" class="form-control" /> -->
+                  <input type="text" name="origin1" (keyup)="getUserIdsFirstWay($event)" id="userIdFirstWay" list="dynmicUserIds" placeholder="(EBL) Erbil International airportt"
+                    class="form-control" [(ngModel)]="model_frm.origin1" #origin1="ngModel" [ngClass]="{ 'is-invalid': createForm.submitted && origin1.invalid }"
+                    required autocomplete="off" />
+                  <datalist id="dynmicUserIds">
+                    <option *ngFor="let item of airPortList1" [value]="item">{{item}}</option>
+                  </datalist>
+                  <div *ngIf="createForm.submitted && origin1.invalid" class="invalid-feedback">
+                    <div *ngIf="origin1.errors.required">origin is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select m-0">
+                  <img src="../../assets/images/banner/flightIcon.png" alt="icon" class="icons" />
+                  <label>Going To</label>
+                  <!-- <input type="text" name="name" placeholder="Enter any city/airport" class="form-control"/> -->
+                  <input type="text" name="goingto" (keyup)="getUserIdsFirstWay1($event)" id="userIdFirstWay1" list="dynmicUserIds1" placeholder="Enter any city/airport"
+                    class="form-control" [(ngModel)]="model_frm.goingto" #goingto="ngModel" [ngClass]="{ 'is-invalid': createForm.submitted && goingto.invalid }"
+                    required autocomplete="off" />
+                  <datalist id="dynmicUserIds1">
+                    <option *ngFor="let item of airPortList1" [value]="item">{{item}}</option>
+                  </datalist>
+                  <div *ngIf="createForm.submitted && goingto.invalid" class="invalid-feedback">
+                    <div *ngIf="goingto.errors.required">Going to is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select  m-0">
+                  <img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+                  <label>Departure</label>
+                  <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="departure_date" [(ngModel)]="model_frm.departure_date" #departure_date="ngModel"
+                      [ngClass]="{ 'is-invalid': createForm.submitted && departure_date.invalid }" (click)="d.toggle()" ngbDatepicker
+                      [minDate]="dep_minDate" #d="ngbDatepicker" required autocomplete="off">
+                    <div *ngIf="createForm.submitted && departure_date.invalid" class="invalid-feedback">
+                      <div *ngIf="departure_date.errors.required">Departure Date is required</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 pr-0 mb-3 pl-0 formFields">
+                <div class="form-group has-search  has-select m-0">
+                  <img src="../../assets/images/banner/date.png" alt="icon" class="icons" />
+                  <label>Return</label>
+                  <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="return_date" [(ngModel)]="model_frm.return_date" #return_date="ngModel"
+                      [ngClass]="{ 'is-invalid': createForm.submitted && return_date.invalid }" (click)="rd.toggle()" ngbDatepicker
+                      [minDate]="ret_minDate" #rd="ngbDatepicker" [required]="model_frm.search_type == '2'" autocomplete="off">
+                    <div *ngIf="createForm.submitted && return_date.invalid " class="invalid-feedback">
+                      <div *ngIf="return_date.errors.required">Return Date is required</div>
+                    </div>
+                  </div>
+                  <!--input type="text"  id = "datepicker-2" placeholder="DD/MM/YYYY" class="form-control" /-->
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12  mb-3 pl-0 formFields">
+                <div class="form-group has-search has-select m-0 dropdown">
+                  <img src="../../assets/images/banner/traveller.png" alt="icon" class="icons" />
+                  <label>Traveller,Class</label>
+                  <div class="form-group posrel">
+                    <label>Travellar</label>
+                    <input type="text" class="form-control" name="adult_count" placeholder="1 passenger,Economy" value="" id="select_psngr1"
+                      ngModel autocomplete="off">
+
+                    <div id="myPopover" class="psngrpopover">
+                      <i class="fa fa-caret-up" style="color:#ccc;font-size:30px;position: absolute;top: -20px;left: 132px;"></i>
+
+                      <div class="popover-body popover-content">
+                        <div class="oneroom form-row">
+
+                          <div class="roomrow bor-bot ">
+                            <div class="celroe col-xs-4">
+                              <span class="agemns adult_input2">1</span> Adult
+                            </div>
+                            <div class="celroe col-xs-8">
+                              <div class="quantity ">
+                                <a href="#" class="quantity__minus adult_minus2">
+                                  <span>-</span>
+                                </a>
+                                <a href="#" class="quantity__plus adult_plus2">
+                                  <span>+</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="roomrow bor-bot ">
+                            <div class="celroe col-xs-4">
+                              <span class="agemns children_input2">0</span> Child 2-12 years
+                            </div>
+                            <div class="celroe col-xs-8">
+                              <div class="quantity ">
+                                <a href="#" class="quantity__minus children_minus2">
+                                  <span>-</span>
+                                </a>
+                                <a href="#" class="quantity__plus children_plus2">
+                                  <span>+</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="roomrow bor-bot ">
+                            <div class="celroe col-xs-4">
+                              <span class="agemns infant_input2">0</span> Infant below 2 years
+                            </div>
+                            <div class="celroe col-xs-8">
+                              <div class="quantity ">
+                                <a href="#" class="quantity__minus infant_minus2">
+                                  <span>-</span>
+                                </a>
+                                <a href="#" class="quantity__plus infant_plus2">
+                                  <span>+</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="roomrow mt-2">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="exampleRadiosone" id="exampleRadios5" value="Economy" checked ngModel>
+                              <label class="form-check-label" for="exampleRadios5">
+                                Economy
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="exampleRadiosone" id="exampleRadios6" value=" Premium Economy" ngModel>
+                              <label class="form-check-label" for="exampleRadios6">
+                                Premium Economy
+                              </label>
+                            </div>
+                            <div class="form-check ">
+                              <input class="form-check-input" type="radio" name="exampleRadiosone" id="exampleRadios7" value="Bussiness" ngModel>
+                              <label class="form-check-label" for="exampleRadios7">
+                                Bussiness
+                              </label>
+                            </div>
+                            <div class="form-check ">
+                              <input class="form-check-input" type="radio" name="exampleRadiosone" id="exampleRadios8" value="First Class" ngModel>
+                              <label class="form-check-label" for="exampleRadios8">
+                                First Class
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="roomrow" style="text-align:right;">
+                          <button style="border: 1px solid  #298eefe3;text-transform:initial;color: #fff;font-size: 15px;width: 40%;padding: 6px 20px;background:#7B1FA2;"
+                            type="button" class="btn   col-12 done1">Done</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-12 px-0">
+                <input type="submit" class="btn btn-danger form-control customBtn" name="submit" value="Search" />
+              </div>
+            </div>
+
+          </div>
+          <div id="showTwo" class="myDiv">
+          </div>
+          <div id="showThree" class="myDiv">
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section class="Flight-Section py-3">
+  <div class="container">
+    <div class="row ">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 Section-Left">
+
+        <div class="col-lg-12 pt-3 row m-0 p-0 iconBox">
+          <div class="col-lg-5 pt-3 text-center p-0 margin0" style="background-color:lightgrey;border-radius:10px;height:100px;width:60px;">
+            <div class="m-auto" style="background-color:#421b60;border-radius:50%;height:60px;width:60px;padding:15px;">
+              <i class="far fa-bell " style="font-size:30px;color:#fff;"></i>
+            </div>
+          </div>
+          <div class="col-lg-7 pt-2 pr-0 float-left center">
+            <ul class="list-inline pt-3">
+              <li>Get Fare Update
+                <span style="display:block;color: #4a4a4e;">Via Mail</span>
+              </li>
+              <li>
+                <a style="color:#421b60 !important;font-weight:500;" href="#">Set a fare alert</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+
+        <div class="col-lg-12 checkBox">
+          <div class="float-left">
+            <h6>CLASS</h6>
+          </div>
+          <div class="float-right">
+            <a class="pre" onclick="myfunction1()" id="click1"> Hide</a>
+          </div>
+          <div style="padding-top:30px;">
+            <ul class="list-inline pt-2 line-height" id="myfilter1">
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Economy
+                  <input type="checkbox" checked="checked">
+
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Business
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">First
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+
+        <hr>
+        <div class="col-lg-12 checkBox">
+
+          <div class="float-left">
+            <h6>STOP</h6>
+          </div>
+          <div class="float-right">
+            <a class="pre" onclick="myfunction2()" id="click2"> Hide</a>
+          </div>
+          <div style="padding-top:30px;">
+            <ul class="list-inline pt-2 line-height" id="myfilter2">
+              <li>
+
+                <label class="container1" style="color:black;font-size:14px;"> Direct flight
+                  <input type="checkbox" name="stopCount0" value="0" (change)="OnChange( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+              </li>
+              <li>
+
+                <label class="container1" style="color:black;font-size:14px;"> 1 Stop
+                  <input type="checkbox" name="stopCount1" value="1" (change)="OnChange( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">2 Stop
+                  <input type="checkbox" name="stopCount2" value="2" (change)="OnChange($event.target.checked,$event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="col-lg-12 checkBox">
+          <div class="float-left">
+            <h6>ARRIVAL TIME</h6>
+          </div>
+          <div class="float-right">
+            <a class="pre" onclick="myfunction3()" id="click3"> Hide</a>
+          </div>
+          <div style="padding-top:30px;">
+            <ul class="list-inline pt-2 line-height" id="myfilter3">
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Early Morning
+                  <input type="checkbox" name="earlymorning" value="EMG" (change)="OnChangeArrTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Morning
+                  <input type="checkbox" name="earlymorning" value="MG" (change)="OnChangeArrTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Evening
+                  <input type="checkbox" name="earlymorning" value="EVG" (change)="OnChangeArrTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Night
+                  <input type="checkbox" name="earlymorning" value="NGT" (change)="OnChangeArrTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="col-lg-12 checkBox">
+          <div class="float-left">
+            <h6>DEPARTURE TIME</h6>
+          </div>
+          <div class="float-right">
+            <a class="pre" onclick="myfunction4()" id="click4"> Hide</a>
+          </div>
+          <div style="padding-top:30px;">
+            <ul class="list-inline pt-2 line-height" id="myfilter4">
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Early Morning
+                  <input type="checkbox" name="earlymorning" value="EMG" (change)="OnChangeDepTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Morning
+                  <input type="checkbox" name="morning" value="MG" (change)="OnChangeDepTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Evening
+                  <input type="checkbox" name="evening" value="EVG" (change)="OnChangeDepTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Night
+                  <input type="checkbox" name="night" value="NGT" (change)="OnChangeDepTime( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="col-lg-12 checkBox">
+          <div class="float-left">
+            <h6>AIRLINES</h6>
+          </div>
+          <div class="float-right">
+            <a class="pre" onclick="myfunction5()" id="click5"> Hide</a>
+          </div>
+          <div style="padding-top:30px;">
+            <ul class="list-inline pt-2 line-height" id="myfilter5">
+              <li>
+                <label class="container1" style="color:black;font-size:14px;"> Show multi-airlines itineraries
+                  <input type="checkbox" checked="checked">
+                  <span class="checkmark"></span>
+                </label>
+
+
+
+              </li>
+              <hr style="border:1px dashed lightgrey">
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">SriLankan
+                  <input type="checkbox" name="airline1" value="UL" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Qatar Airways
+                  <input type="checkbox" name="airline2" value="QR" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Emirates
+                  <input type="checkbox" name="airline3" value="3" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Etihand Airways
+                  <input type="checkbox" name="airline4" value="4" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Flydubai
+                  <input type="checkbox" name="airline5" value="5" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+              <li>
+                <label class="container1" style="color:black;font-size:14px;">Jazeera Airways
+                  <input type="checkbox" name="airline6" value="6" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                  <span class="checkmark"></span>
+                </label>
+
+
+              </li>
+
+            </ul>
+          </div>
+          <a href="#" style="color:#421b60;font-weight:500;">See More</a>
+        </div>
+      </div>
+
+      <div class="col-lg-9 col-md-9 col-sm-12 col-12 Section-Right">
+        <!--  <div class="row mx-0 FlightsectionBlogRight" style="overflow-x:auto;">
+                        <table style="width:100%;color:#421b60;">
+                       
+                              <tr class="text-center flightName">
+                                <td style="font-size:10px;">All Fares</td> 
+    
+                                <td>
+                                  <ul>
+                                  <li>  <img class="flightlogo" src="../../assets/images/flight/turkish-airlines.png" > </li>
+                                  <li>Turkish Airline</li>
+                                 </ul>
+                                  </td>
+    
+                                <td>
+                                  <ul>
+                                <li>  <img class="flightlogo" src="../../assets/images/flight/turkish-airlines.png" > </li>
+                                 <li> Turkish Airline </li> </ul>
+                                </td>
+    
+                                <td> 
+                                  <ul class="mb-0"> 
+                                 <li> <img class="flight-logo" src="../../assets/images/flight/MEA.png" ></li>
+                                    <li>MEA</li>
+                                  <li> <span class="pree">(with others)</span></li>
+                                  </ul>
+                                </td>
+    
+                                <td>
+                                  <ul class="mb-0">
+                                  <li>  <img class="flight-logo" src="../../assets/images/flight/GulfAir.png" > </li>
+                                  <li> Gulf Air </li>
+                                    <li><span class="pree">(with others)</span> </li>
+                                    </ul>
+                                  </td>
+    
+                                <td>
+                                  <ul class="mb-0">
+                                <li><img class="flight-logo" src="../../assets/images/flight/flydubai-logo.png" > </li>
+                                <li> Flydubai</li>
+                                  <li><span class="spane">(with others)</span> </li>
+                                  </ul>
+                                  </td>
+                                  
+    
+                                    <td>
+                                      <ul class="mb-0">
+                                      <li> <img class="flightlogo" src="../../assets/images/flight/emirates.jpg" ></li>
+                                      <li> Emirates </li>
+                                      <li> <span class="spane">(with others)</span></li>
+                                      </ul>
+                                       </td>
+                                  </tr>
+    
+                              <tr class="text-center flightStopage">
+                                      <td class="pt-2 p-2">Non Stop</td>
+                                      <td>$245.59</td>
+                                      <td>$366.39</td>
+                                      <td>$366.39</td>
+                                      <td>$422.21</td>
+                                      <td>$423.21</td>
+                                      <td>$437.94</td>
+                                    
+                                    </tr>
+    
+                                    
+                              <tr class="text-center flightStopage">
+                                      <td class="pt-2 pb-2">1 Stop</td>
+                                      <td>-</td>
+                                      <td>$2,172.45</td>
+                                      <td>$492.01</td>
+                                      <td>$509.89</td>
+                                      <td>$557.80</td>
+                                      <td>-</td>
+                                    </tr>
+                              
+                            
+                          </table>
+                        
+                      </div>
+    
+                      <div class="row mx-0 mr-0 ml-0 mt-2 fareCalender " style="margin-bottom:12px;">
+                        
+                
+                     <div class="col-lg-1 m-0 p-2 pl-3 flex0" style="background-color:#d3d3d3;border-radius:5px 0px 0px 5px;
+                     margin-right:4px !important;flex:0 7.2%">
+           <i class="fas fa-caret-left" style="margin:10px;font-size:20px;"></i>
+                                    </div>
+                       <div class="col-lg-2 m-0 p-2 text-center" style="background-color:#d3d3d3;margin-right:3px !important;">
+                                        <p class="fontsize">27 September 2019 Fri<br>
+                                       <b>187.60 USD</b></p>
+                               </div>
+                          
+                                
+                 <div class="col-lg-2 m-0 p-2 text-center" style="background-color:#d3d3d3;margin-right:2px !important;">
+                    <p class="fontsize">27 September 2019 Fri<br>
+                   <b>187.60 USD</b></p>
+                </div>    
+                                
+                  
+           
+                               
+            <div class="col-lg-2 m-0 p-2 text-center" style="background-color:#421b60;color:#fff;margin-right:2px !important;">
+                                               <p class="fontsize">27 September 2019 Fri<br>
+                                              <b>187.60 USD</b></p>
+                                           </div>
+                                  
+            <div class="col-lg-2 m-0 p-2 text-center" style="background-color:#d3d3d3;margin-right:3px !important;" >
+                                               <p class="fontsize"> 27 September 2019 Fri<br>
+                                              <b>187.60 USD</b></p>
+                                           </div>
+                              
+          
+           
+              
+              <div class="col-lg-2 m-0 p-2 text-center" style="background-color:#d3d3d3;margin-right:4px !important;">
+                       <p class="fontsize">27 September 2019 Fri<br>
+                      <b>187.60 USD</b></p>
+                   </div>
+          
+                   <div class="col-lg-1 m-0 p-2 pl-3 flex0" 
+                   style="background-color:#d3d3d3;border-radius:0px 5px 5px 0px; flex:0 7.2%">
+                      <i class="fas fa-caret-right"  style="margin:10px;font-size:20px;"></i>
+                               </div>
+               
+          
+                      </div> -->
+
+
+
+
+
+        <div class="row mx-0 mb-2 pt-1 pl-3 pr-3 FlightSectionHeading FlightsectionBlogRight">
+
+          <div class="col-lg-2 p-0 m-0 text-center">
+            <label class="text-black">Airlines</label>
+          </div>
+
+          <div class="col-lg-7 p-0 m-0 row">
+            <div class="col-lg-4 p-0 m-0 text-center">
+              <label class="text-black">Departure</label>
+            </div>
+            <div class="col-lg-2 p-0 m-0"></div>
+            <div class="col-lg-4 p-0 m-0 text-center">
+              <label class="text-black">Arrival</label>
+            </div>
+
+            <div class="col-lg-2 p-0 m-0 text-center">
+              <label class="text-black">Duration</label>
+            </div>
+          </div>
+
+          <div class="col-lg-3 p-0 m-0 text-center">
+            <label class="text-black">Price</label>
+            <img src="../../assets/images/flight/arrow-up.png" style="height:20px;">
+          </div>
+
+        </div>
+        <ngx-spinner></ngx-spinner>
+        <div class="row mx-0 FlightsectionBlogRight pl-3 pr-3" *ngFor="let flight of searchFlight">
+
+          <div class="col-lg-2 p-2 m-0 text-center border-right flightNameRight">
+            <ul>
+              <li>
+                <img src="{{flight.logo_url}}" style="height:50px;width:90px;">
+              </li>
+              <li>
+                <span>{{flight.airline}} </span>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="col-lg-7 pt-2 p-0 m-0 row flightDepature">
+            <div class="col-lg-4 pt-4 p-0 m-0 text-center">
+              <ul>
+                <li CLASS="bigFont" style="font-size:18px;">{{flight.destination}} {{flight.departuretime}}</li>
+                <li>
+                  <span>{{flight.departure}}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-2 pt-4 p-0 m-0 text-center flightDepature">
+              <ul>
+                <li>
+                  <img src="../../assets/images/flight/arrow.png" style="width:80px;">
+                </li>
+                <li>
+                  <span> {{flight.stop}} Stop</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 p-0 pt-4 m-0 text-center">
+              <ul>
+                <li CLASS="bigFont" style="font-size:18px;">{{flight.origin}} {{flight.arrivaltime}}</li>
+                <li>
+                  <span>{{flight.arrival}}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 p-0 pt-4 m-0 text-center">
+              <ul>
+                <li>
+                  <i class="far fa-clock" style="font-size:20px;"></i>
+                </li>
+                <li>
+                  <span>{{flight.totaltime}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 p-0 pt-4 m-0 text-center">
+            <ul class="pt-1">
+              <li CLASS="bigFont" style="font-size: 18px;">{{flight.currency}} {{flight.price}}</li>
+              <li>
+                <button class="btn btn-color" routerLink="/flightbooking/{{flight.id}}">Book Now</button>
+              </li>
+
+            </ul>
+          </div>
+          <div class="row mx-0 flightTab" style="width:100%;border-top:1px solid lightgrey;">
+
+            <div class="col-lg-2 mr-2 pr-0 text-center pt-2">
+              <a style="color:#421b60;font-weight:500;" (click)="filghtDetails(flight.id)" id="clickme"> Flight Details
+                <i class="fas fa-chevron-down pt-1"></i>
+              </a>
+            </div>
+            <div class="col-lg-2 ml-3 pl-3 pt-2">
+              <ul class="row">
+                <li class="pl-1">
+                  <span>
+                    <i class="fas fa-coffee"></i>
+                  </span>
+                </li>
+                <li class="pl-1">
+                  <span>
+                    <i class="fas fa-wifi"></i>
+                  </span>
+                </li>
+                <li class="pl-1">
+                  <span>
+                    <i class="fas fa-wheelchair"></i>
+                  </span>
+                </li>
+                <li class="pl-1">
+                  <span>
+                    <i class="fa fa-plug"></i>
+                  </span>
+                </li>
+                <li class="pl-1">
+                  <span>
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mx-0 flightTabBody mb-3" style="width:100%; 
+              border:1px solid #421b60;display: none;border-radius:3px;" id="MyDIV{{flight.id}}">
+            <div class="container">
+              <div class="row" style="background-color:#421b60;color:#fff;font-size:13px;border-radius: 3px 3px 0px 0px; ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pr-5 flightTabBodyHeader">
+                  <div class="float-left pt-2 flightDeatilsleft">
+                    &nbsp;
+                    <i class="fa fa-long-arrow-alt-right"></i> &nbsp;
+
+                  </div>
+                  <div class="float-right">
+                    <ul class="row pb-0 mb-0 flightDeatilsRight">
+                      <li>
+                        <button class="btn pt-1" style="text-transform:initial;border-radius:20px;font-size:12px;color:#fff;
+                                        border:1px solid #fff;height:25px;"> Non Refundable</button>
+                      </li>
+                      <li class="pt-2 pl-3"> Know more</li>
+                    </ul>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="container pl-0 pr-0" *ngFor="let detail of detailFlight">
+              <div class="row ml-0 pr-0">
+                <div class="col-lg-2 text-left  pl-3  m-0 p-0">
+                  <ul class="flightDeatils">
+                    <!--  <li><img  src="../../assets/images/flight/flydubai-logo.png"  style="height:40px;"></li> -->
+                    <li>
+                      <span>FLYDUBAI</span>
+                    </li>
+                    <li>
+                      <span>FZ-203</span>
+                    </li>
+                    <li>
+                      <span>Economy</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 ml-0 mr-0 pl-3 p-0 row">
+                  <div class="col-lg-6 text-left pt-3 pl-3 p-0 m-0">
+                    <ul class="pl-1 DeatilsDABPW">
+                      <li class="bigFont" style="font-size:18px;">{{detail.origin}} {{detail.departure}}</li>
+                      <li>
+                        <span>{{detail.departure_date}}</span>
+                      </li>
+                      <li>
+                        <span>{{detail.origin_city_name}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-5 text-left pl-3 pt-3 p-0 m-0">
+                    <ul class="pl-0 DeatilsDABPW">
+                      <li class="bigFont" style="font-size:18px;">EBL 11:50</li>
+                      <li>
+                        <span>Wed,22 Jul 2020 </span>
+                      </li>
+                      <li>
+                        <span> Erbil International Airport</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-2 text-left pl-3 pt-4 p-0 m-0">
+                  <ul class="pt-3 pl-2 DeatilsDABPW">
+                    <li>
+                      <span>Check-In Baggage</span>
+                    </li>
+                    <li>
+                      <span>Cabin Baggage</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-2   text-left pl-3 pt-4 m-0 p-0">
+                  <ul class="pt-3 pl-2 DeatilsDABPW">
+                    <li>
+                      <span>0 KG/Person</span>
+                    </li>
+                    <li>
+                      <span>7KG/Person</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@font-face 
+{
+  font-family: 'OpenSans-Regular' ;
+  src: url('../../assets/font/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face 
+{
+  font-family: 'OpenSans-ExtraBold' ;
+  src: url('../../assets/font/OpenSans-ExtraBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-SemiBold' ;
+  src: url('../../assets/font/OpenSans-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face 
+{
+  font-family: 'OpenSans-Bold' ;
+  src: url('../../assets/font/OpenSans-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo-Bold' ;
+  src: url('../../assets/font/Archivo-Bold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Medium' ;
+  src: url('../../assets/font/Archivo-Medium.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-Regular' ;
+  src: url('../../assets/font/Archivo-Regular.ttf') format('truetype');	
+	font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo-SemiBold' ;
+  src: url('../../assets/font/Archivo-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	background: #f0f1f5;
+}
+/** Header css**/
+header 
+{
+    border-bottom: 4px solid #1d2645;
+}
+.customBgnav 
+{
+    background: white !important;
+    padding-bottom: 0px;
+}
+.logo 
+{
+    padding: 0px 15px 0px 0px;
+}
+.leftMenu li.nav-item.active 
+{
+    border-bottom: 4px solid;
+    color: #d32d9c;
+    margin-bottom: -10px;
+    z-index: 1;
+}
+.leftMenu li.nav-item.active a 
+{
+    color: #d32d9c !important;
+}
+/**right Menu**/
+.headerRightMenu li.nav-item.active 
+{
+    border-bottom: 4px solid;
+    color: #d32d9c;
+    margin-bottom: -20.5px;
+    z-index: 1;
+}
+.headerRightMenu li.nav-item.active a 
+{
+    color: #d32d9c !important;
+}
+.plan-icon {
+    transform: rotate(310deg);
+}
+.headerRightMenu {
+}
+.headerRightMenu li a {
+    padding: 0px 10px 10px;
+}
+.accountDropdown {
+    width: 182px !important;
+    height: 132px;
+    padding: 15px 10px;
+    font-size: 10px;
+    box-shadow: 0px 0px 15px #000000;
+    border: 0px;
+    margin-top: 10px;
+}
+.profileSection {
+    margin-bottom: 10px;
+    width: 100%;
+    FLOAT: LEFT;
+}
+.profileImg {
+    WIDTH: 30%;
+    FLOAT: LEFT;
+    MARGIN-RIGHT: 5%;
+    TEXT-ALIGN: CENTER;
+}
+.profileImg img {
+    width: 40px;
+}
+.profileText {
+    float: right;
+    WIDTH: 60%;
+}
+.profileText UL {
+    PADDING-LEFT: 0PX;
+}
+.profileText li 
+{
+    font-size: 12px;
+    color: #6c6c6c;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.accountDropdown button {
+    clear: both;
+    width: 100%;
+    width: 133px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: #7b1fa2;
+    border: 0px;
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: 400;
+}
+headerRightMenu li a {
+    padding: 0px 10px 10px;
+}
+.headerRightMenu li a {
+    padding: 0px 5px;
+    color: #272727;
+}
+.accountDropdown p.secondaryText {
+    font-size: 10px;
+    margin-top: 8px;
+    font-family: auto;
+    font-size: 9px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    text-align: left;
+}
+.accountDropdown a.link {
+    color: #00b9f2 !important;
+    padding: 0px !important;
+}
+img.flag-icon {
+    width: 25px;
+}
+header
+{
+    font-size:12px;
+}
+
+/** Login form css **/
+/**section.loginPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}**/
+.loginFormdiv {
+    width: 389px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+   /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);*/
+
+}
+.loginIcon.arrow-bottom {
+    width: 100%;
+    background: linear-gradient(184deg, rgba(69,39,160,0.5) 0%, rgba(69,39,160,0.5) 9%, rgba(123,31,162,0.9) 100%) ,
+    url('../../assets/images/popup/bg-registration.png');
+    /*background-color: #7B1FA2;*/
+    color: #fff;
+    /* padding: 20px; */
+    position: relative;
+    HEIGHT: 142PX;
+    border-radius: 6px 6px 0px 0px;
+}
+.loginIcon.arrow-bottom img {
+    width: 70px;
+    height: auto;
+    /* line-height: 142px; */
+    margin: 35px 0px;
+}
+.arrow-bottom.arrow-bottom-border:after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    bottom: -9px;
+    border-top: 10px solid #7B1FA2;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: none;
+    /* transform: translate(0%,-50%); */
+    left: 47%;
+}
+.loginForm {
+    background: white;
+    margin-top: 15px;
+}
+.loginForm .primaryText {
+    FONT-SIZE: 17PX;
+    COLOR: #2c2e35;
+    FONT-FAMILY: Archivo;
+    font-weight: 600;
+    MARGIN-BOTTOM: 0PX;
+}
+.loginForm .SecondayText {
+    font-size: 12px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.loginForm form {
+    padding: 0px 55px;
+    width: 100%;
+}
+.loginForm input {
+    font-size: 12px;
+    color: #d8d9da;
+    font-family: "Archivo";
+    font-weight: 400;
+    MARGIN-BOTTOM: 10px !important;
+}
+.checkboxForgetl {
+    font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+	text-align:left;
+}
+.styled-checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+.checkboxForgetl {
+    font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.styled-checkbox:checked + label:before {
+    background: #7b1fa2;
+}
+.input-group.formfieldIcon 
+{
+    position: relative;
+}
+.input-group.formfieldIcon i 
+{
+    position: absolute;
+    z-index: 9;
+    color: #d8d9da;
+    font-size: 15px;
+    top: 7px;
+    left: 6px;
+}
+.input-group.formfieldIcon input 
+{
+    padding-left: 25px;
+	color: #d8d9da;
+}
+.styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    background: #eae9e9;
+}
+.loginForm button {
+    /* width: 278px; */
+    height: 28px;
+    border-radius: 14px;
+    background-color: #7b1fa2;
+    MARGIN: 0PX AUTO;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.socialBtngf {
+    width: 100%;
+    padding: 0px 55px;
+    float: left;
+    margin-bottom: 20px;
+}
+.socailBtn {
+    width: 47.5%;
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    width: 30px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.google-btn {
+    height: 30px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-right: 5%;
+    position: relative;
+    float: left;
+    border: 1px solid gray;
+}
+.socailBtn.google-btn.facebook-btn p {
+    left: 36px;
+    color: gray;
+}
+.google-btn p {
+    color: white;
+    position: absolute;
+    top: 8px;
+    left: 38px;
+    font-size: 7px;
+    margin-bottom: 0px;
+}
+.socailBtn.google-btn.facebook-btn {
+    margin-right: 0px;
+    background: white;
+}
+.loginForm .SecondayText {
+    font-size: 12px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+/** Registration form **/
+.registrationFormDiv {
+    width: 776px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+    height: 505px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,0%);
+}
+section.loginPage {
+    POSITION: ABSOLUTE;
+    TOP: 50%;
+    LEFT: 50%;
+    TRANSFORM: TRANSLATE(-50%,50%);
+}
+
+.registrationLeftDiv {
+    width: 50%;
+    float: left;
+    background: white;
+    border-radius: 6px 0px 0px 6px;
+}
+.registrationIcon img {
+    width: 96px;
+    height: 96px;
+    margin: 23px 0px;
+}
+.loginForm {
+    background: white;
+    margin-top: 15px;
+}
+.loginForm form {
+    padding: 0px 55px;
+    width: 100%;
+}
+.registrationRightDiv {
+    width: 50%;
+    background: linear-gradient(184deg, rgba(69,39,160,0.5) 0%, rgba(69,39,160,0.5) 9%, rgba(123,31,162,0.9) 100%) ,url('../../assets/images/popup/bg-registration.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    float: right;
+    padding: 62px 32px;
+    color: white;
+    height: 505px;
+    border-radius: 0px 6px 6px 0px;
+}
+.registrationRightDiv .primaryText {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+}
+.border-botted {
+    border: 0.1px dotted white;
+}
+ul.RegistrationPoints {
+    padding-left: 25px;
+    padding-top: 20px;
+}
+ul.RegistrationPoints li {
+    margin-bottom: 10px;
+}
+.registrationRightDiv .primaryText {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+}
+.google-btn .google-icon {
+    margin-top: 5px;
+    width: 17px;
+    height: 17px;
+}
+.customClassRegistar
+{
+    z-index:9;
+    color:white !important;
+	opacity:1 !important;
+	    outline: 0px;
+}
+.loginPages
+{
+    width: 389px !important;
+}
+
+.app-modal-window .modal-dialog {
+    width: 300px !important;
+  }
+.loginBtn
+{
+    background: #421b60;
+    color: white !important;
+    width: 100%;
+    padding: 5px 15px !important;
+    border-radius: 3px;
+    clear: both;
+    text-align: center;
+    cursor: pointer;
+}
+.registrationlink
+{
+    cursor: pointer;
+}
+.socailBtn.google-btn.facebook-btn img
+{
+	 width: 100%;
+    height: 28px;
+    margin-top: 0px;
+}
+.registerNowText
+ {
+    padding: 0px 55px;
+    FONT-WEIGHT: 500;
+    text-align: left;
+}
+.profileText ul li 
+{
+    list-style-type: none;
+}
+.profileText i 
+{
+    padding-right: 5px;
+}
+
+/**checkbox**/
+/* The container */
+.container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.container-checkbox .checkmark {
+       position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+    background-color: #7b1fa2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.container-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+        left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* The container */
+.container-radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.container-radio .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container-radio:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container-radio input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.container-radio .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container-radio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container-radio .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+/** logo **/
+.logo img 
+{
+    width: 215px;
+}
+.logo-border {
+    border-right: 1px solid gray;
+    margin-left: 10px;
+    height: 25px;
+    float: right;
+    margin-top: 15px;
+}
+.headerRightMenu li
+{
+position:relative;
+}
+.accountDropdown
+{
+	display:none;
+}
+.accountDropdown
+{
+    background: white;
+    z-index: 1;
+}
+a:hover{text-decoration:none;}
+.headerRightMenu li a:hover + .accountDropdown
+{
+	display:block;
+}
+.accountDropdown:after {
+    content: " ";
+    position: absolute;
+    right: 40%;
+    top: -8px;
+    border-top: none;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+

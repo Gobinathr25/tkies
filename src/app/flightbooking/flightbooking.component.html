@@ -1,0 +1,224 @@
+
+<section class="innerPageBanner">
+
+</section>
+<!--FlightBooking Section-->
+<section class="flightBookingSection">
+	<div class="container">
+    	<div class="row">
+    <div class="flightBookingSectionLeflift col-lg-8 col-md-8 col-sm-12 col-12"> 
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="ticketDeatils panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title ticketDetailsHeading">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-angle-down"></i>
+                           Ticket Details
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body ticketDeatilsBody">
+                          <p class="ticketDeatilsBodyHeading"> <i class="fa fa-plane" aria-hidden="true"></i>{{detailFlight['origin_city_name']}} - {{detailFlight['destination_city_name']}} {{detailFlight['departure_date']}} </p>
+                          <div class="ticketDeatilsBodyInner">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2 col-sm-12 col-12 flightname">
+                                        <img src="{{detailFlight['logo_url']}}" alt="flightName" class="img-fluid" />
+                                        <span>{{detailFlight.airline}}
+                                            Economy
+                                            ({{detailFlight['segment'][0].flight_number}})</span>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 flightDepatureDeatils">
+                                        <span>{{detailFlight['departure']}}</span>
+                                        <p>{{detailFlight['origin']}} 03:35</p>
+                                        <span>{{detailFlight['origin_city_name']}} </span>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 flightDurationDeatils">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>{{detailFlight['totaltime']}}
+										<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        <span>Flight Duration</span>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 flightDepatureDeatils">
+                                        <span>{{detailFlight['arrival']}}</span>
+                                        <p>{{detailFlight['destination']}} 03:35</p>
+                                        <span>{{detailFlight['destination_city_name']}} </span>
+                                    </div>
+                                </div>
+                        	</div>
+                    </div>
+                
+                </div>                               
+            </div>
+            <div class="travelDeatils panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title travelDetailsHeading">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-angle-down"></i>
+                            Traveller Details 
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body travelDeatilsBody">
+                        <div class="customBgFareSummry mb-3">
+                            <span class="badge customBadge">Note</span>Please make sure you enter the name as per your passport
+						</div>
+						<form id="MyForm" #createForm=ngForm (ngSubmit)="onSubmit(createForm.value)">
+						<div class="travelDetailsFormBgLight" *ngFor="let i of adultArr">
+                            <div class="row travelDetailsWrapper mx-0">
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsLabel">
+                                <i class="fa fa-user" aria-hidden="true"></i><p>Adult{{i}}</p>
+                                </div>
+								<div class="col-lg-10 col-md-10 col-sm-12 col-12">
+								</div>
+                            </div>
+                            <div class="row travelDetailsWrapper mx-0">
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsLabel">
+									<p>Adult Name</p>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsField">
+									<input type="text" name ="adult_title{{i}}" class="form-control" placeholder="Title" ngModel/>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" name ="adult_fname{{i}}" placeholder="First Name" ngModel/>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" name ="adult_lname{{i}}" placeholder="Last Name" ngModel/>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12">
+								</div>
+							</div>
+							
+							<div class="row travelDetailsWrapper mx-0">
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsLabel">
+									<p></p>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsField">
+									<input type="text" name ="adult_dob{{i}}" class="form-control" placeholder="Date of birth" ngModel/>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" name ="adult_passno{{i}}" placeholder="Passport No" ngModel/>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" name ="adult_issue_country{{i}}" placeholder="Country" ngModel/>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12">
+								</div>
+                            </div>
+						</div>
+						<div class="travelDeatilsFormNone">
+							<div class="row travelDetailsWrapper mx-0">
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsLabel">
+									<p>Email Address</p>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control"name ="email_addr"  placeholder="" ngModel/>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12 travelDetailsLabel">
+									<span>Your ticket will be send to this email address</span>
+								</div>
+							</div>
+							<div class="row travelDetailsWrapper mx-0">
+								<div class="col-lg-2 col-md-2 col-sm-12 col-12 travelDetailsLabel">
+									<p>Mobile Number</p>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="" name ="phone" ngModel/>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								</div>
+							</div>
+							<div class="row mx-0 travelDetailsWrapper">
+								<select class="form-control travelDetailsSelect col-lg-5" id="exampleFormControlSelect1">
+								  <option>Enter GST Details to claim benefits (optional)
+</option>
+								  <option>Enter GST Details to claim benefits (optional)
+</option>
+								  <option>Enter GST Details to claim benefits (optional)
+</option>
+								  <option>Enter GST Details to claim benefits (optional)
+</option>
+								  <option>Enter GST Details to claim benefits (optional)
+</option>
+								</select>
+								<p>Travel for business purpose? Please enter Company GST details below</p>
+							</div>
+							<div class="row mx-0 travelDetailsWrapper">
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="Company GST Email" />
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="GST Number" />
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="Company Address" />
+								</div>
+							</div>
+							<div class="row mx-0 travelDetailsWrapper">
+								<div class="col-lg-3 col-md-3 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="Company Name" />
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-12 col-12 travelDetailsField">
+									<input type="text" class="form-control" placeholder="Company Contact Number" />
+								</div>
+							</div>
+							<p><strong>Note:</strong> You will receive your ticket with above GST details</p>
+							<div class="col-lg-1 col-md-1 col-sm-12 px-0">
+								<input type="hidden" name="fid" value ='3902' ngModel="3902">
+								<input type="hidden" name="agent_id" value='34' ngModel ="34">
+								<input type="hidden" name="user_name" value='kavita.malode@gmail.com' ngModel="kavita.malode@gmail.com">
+								<input type="hidden" name="adult_issue_country1" value ='IN' ngModel="IN">
+								<input type="hidden" name="adult_meal1" value='1' ngModel ="1">
+								<input type="hidden" name="adult_gender1" value='M' ngModel="M">
+								<input type="hidden" name="country_code" value='IN' ngModel ="IN">
+								<input type="hidden" name="post_code" value='91324324324' ngModel="91324324324">
+								<input type="submit" class="btn btn-danger form-control customBtn" name="submit" value="Search"/>
+							  </div>
+						</div>
+						</form>
+						</div>
+				</div>
+            </div>
+        </div>    
+    </div><!-- panel-group -->     
+	<div class="flightBookingSectionRight col-lg-4 col-md-4 col-sm-12 col-12">
+		<div class=" fareSummry panel panel-default">
+		<div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title ticketDetailsHeading">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Fare Summary 
+				</a>
+			</h4>
+		</div>
+		<div class="panel-body">
+			<table class="table table-borderless ">
+				  <tbody class="fareSummryBody">
+					<tr>
+					  <td>Travelers</td>
+					  <td>{{detailFlight['adult']}} Adult</td>
+					</tr>
+					<tr>
+					  <td>Base Fare</td>
+					  <td>{{detailFlight['currency']}} {{detailFlight['basefare']}}</td>
+					</tr>
+					<tr>
+					  <td>Fee & Surcharge </td>
+					  <td>{{detailFlight['currency']}} {{detailFlight['taxes']}}</td>
+					</tr>
+					<!--<tr>
+					  <td>Wallet Discount<span>Sign in / Sign Up to use Wallet</span></td>
+					  <td>USD 0</td>
+					</tr>	-->
+				  </tbody>
+				  <tfoot class="customBgFareSummry">
+					  <td>Total Amount <span></span></td>
+					  <td>{{detailFlight['currency']}} {{detailFlight['totalfare']}}</td>
+				  </tfoot>
+			</table>
+		</div>	
+	</div>
+	</div>		
+</div>
+	</div>
+</section>	
+	

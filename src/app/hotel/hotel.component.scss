@@ -1,0 +1,1506 @@
+
+    @font-face 
+    {
+      font-family: 'OpenSans-Regular' ;
+      src: url('../../assets/font/OpenSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face 
+    {
+      font-family: 'OpenSans-SemiBold' ;
+      src: url('../../assets/font/OpenSans-SemiBold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face 
+    {
+      font-family: 'OpenSans-Bold' ;
+      src: url('../../assets/font/OpenSans-Bold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Archivo-Bold' ;
+      src: url('../../assets/font/Archivo-Bold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-Medium' ;
+      src: url('../../assets/font/Archivo-Medium.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-Regular' ;
+      src: url('../../assets/font/Archivo-Regular.ttf') format('truetype');	
+        font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Archivo-SemiBold' ;
+      src: url('../../assets/font/Archivo-SemiBold.ttf') format('truetype');
+        font-weight: normal;
+      font-style: normal;
+    }
+    body,html
+    {
+        font-family: 'Open Sans', sans-serif;
+        font-size:12px;
+        background: #f0f1f5 !important;
+    }
+/** Header css**/
+header 
+{
+    border-bottom: 4px solid #1d2645;
+}
+.customBgnav 
+{
+    background: white !important;
+    padding-bottom: 0px;
+}
+.logo 
+{
+    padding: 0px 15px 0px 0px;
+}
+.leftMenu li.nav-item.active 
+{
+    border-bottom: 4px solid;
+    color: #d32d9c;
+    margin-bottom: -14px;
+    z-index: 1;
+}
+.leftMenu li.nav-item.active a 
+{
+    color: #d32d9c !important;
+}
+.plan-icon {
+    transform: rotate(310deg);
+}
+.headerRightMenu {
+    margin-top: 15px !important;
+}
+.headerRightMenu li a {
+    padding: 0px 10px 10px;
+}
+.accountDropdown {
+    width: 152px !important;
+    height: 112px;
+    padding: 15px 10px;
+    font-size: 10px;
+    box-shadow: 0px 0px 15px #e2b2f7;
+    border: 0px;
+    margin-top: 10px;
+}
+.profileSection {
+    margin-bottom: 10px;
+    width: 100%;
+    FLOAT: LEFT;
+}
+.profileImg {
+    WIDTH: 30%;
+    FLOAT: LEFT;
+    MARGIN-RIGHT: 10%;
+    TEXT-ALIGN: CENTER;
+}
+.profileImg img {
+    width: 30px;
+}
+.profileText {
+    float: right;
+    WIDTH: 60%;
+}
+.profileText UL {
+    PADDING-LEFT: 0PX;
+}
+.profileText li {
+    font-size: 10px;
+    color: #6c6c6c;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.accountDropdown button {
+    clear: both;
+    width: 100%;
+    width: 133px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: #7b1fa2;
+    border: 0px;
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: 400;
+}
+headerRightMenu li a {
+    padding: 0px 10px 10px;
+}
+.headerRightMenu li a {
+    padding: 0px 5px;
+    color: black;
+}
+.accountDropdown p.secondaryText {
+    font-size: 10px;
+    margin-top: 8px;
+    font-family: auto;
+    font-size: 7.5px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    text-align: center;
+}
+.accountDropdown a.link {
+    color: #00b9f2;
+    padding: 0px;
+}
+img.flag-icon {
+    width: 25px;
+}
+header
+{
+    font-size:12px;
+}
+
+/** Section Page Heading **/
+section.pageHeading 
+{
+    background: #dff0fa;
+    padding:32px 0px  12px 0px;
+}
+section.pageHeading h5 {
+    font-size: 19px;
+    line-height: 13px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 600;
+}
+section.pageHeading p {
+    font-size: 12px;
+    line-height: 13px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+section.pageHeading select
+{
+    font-size: 12px;
+line-height: 13px;
+color: #00b9f2;
+font-family: "Archivo";
+font-weight: 400;
+background:none;
+border:none;
+}
+.form-group.has-search {
+    /*width: 233px;*/
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+.has-search i , input
+{
+    font-size: 12px;
+line-height: 13px;
+color: #bababa;
+font-family: "Arial";
+}
+/** Search Box**/
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control 
+{
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback 
+{
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+/** Section Hotel Section **/
+.hotelSectionRight {
+    padding: 0px;
+    padding-left:8px !important;
+}
+.hotelSectionLeft {
+    padding: 10px;
+    /* padding-right: 8px; */
+    border: 1px solid #bababa;
+    background: white;
+}
+.hotelSectionLeft .card {
+    border-radius: 0px !important;
+    border-left: 0px;
+    border-right: 0px;
+}
+.hotelSectionLeft .card-header, .card-body
+{
+    background: none;
+    padding:4px 0px;
+    border:0px;
+}
+.hotelSectionLeft .card-body
+{
+    padding-bottom: 8px;
+}
+.hotelSectionLeft .card-header button
+{
+    font-size: 11px;
+    line-height: 13px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 500;
+    text-decoration: none;
+    padding-left: 0px;
+    float:left;
+}
+.row.mx-0.hotelsectionBlogRight {
+    BORDER: 1px solid #bababa;
+    margin-bottom: 15px;
+}
+section.hotelSection 
+{
+    background: #f0f1f5;
+}
+.hotelRightContent
+{
+    background:white;
+    padding:24px 20px;
+}
+.hotelRightContent h5 {
+    font-size: 14px;
+    line-height: 13px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+.hotelRightContent h5:hover
+{
+    color:#7b1fa2;
+}
+
+span.ratingStyle
+{
+    padding-left:10px;
+}
+.ratingStyle i 
+{
+    color: #7b1fa2 !important;
+}
+.hotelRightContent span
+{
+    font-size: 8px;
+    line-height: 13px;
+    color: #bababa;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.hotelRightContent ul 
+{
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+.hotelRightContent ul li
+{
+    font-size: 11px;
+    line-height: 13px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.hotelRightContent span 
+{
+        color: #bababa;
+        font-weight: 400;
+        font-size:12px;
+        margin-right:5px;
+}
+
+.hotelRightContent ul li i
+{
+    color: #bababa;
+    font-weight: 400;
+    font-size:12px;
+    margin-right:5px;
+}
+
+.hotelPriceRight 
+{
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+    align-items: flex-end;
+}
+.hotelPriceRight p {
+    font-size: 15px;
+    line-height: 15px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.hotelPriceRight span 
+{
+    font-weight: 400;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 15px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.hotelPriceRight button {
+    width: 99px;
+    height: 29px;
+    border-radius: 2px;
+    background-color: #7b1fa2;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 400;
+    box-shadow: 0px;
+    border: none;
+}
+.card.hotelRating i {
+    display: block;
+    color: #7b1fa2;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.card.hotelName input 
+{
+    /* width: 207px; */
+    /* height: 26px; */
+    border-radius: 2px;
+    background-color: #f0f2f5;
+    border: 0.4320000112056732px solid #e0e0e0;
+}
+.checkboxForgetl {
+    font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.loginForm input {
+    font-size: 12px;
+    color: #d8d9da;
+    font-family: "Archivo";
+    font-weight: 400;
+    MARGIN-BOTTOM: 10px !important;
+}
+.styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+.styled-checkbox:checked + label:before {
+    background: #7b1fa2;
+}
+.styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    background: #eae9e9;
+}
+.styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 8px;
+    background: white;
+    width: 1.5px;
+    height: 1.5px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.styled-checkbox 
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/** Hotel Search Box **/
+.formFields 
+{
+    padding-right: 2px !important;
+}
+img.icons {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+}
+.has-search.has-select label {
+    padding-left: 30px;
+}
+.box label 
+{
+    position: absolute;
+    color: gray;
+    padding: 3px 0px 0px 10px;
+    font-size: 9px;
+}
+.has-select .form-control 
+{
+    font-size: 12px;
+    padding-left: 30PX;
+    height: 37PX;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+.has-search .form-control 
+{
+    font-size: 12px;
+    padding: 23px 0px 12px 10px;
+}
+.has-search .form-control 
+{
+    font-size: 12px;
+    padding: 24px 0px 12px 10px;
+}
+#dLabel 
+{
+    text-align: left;
+}
+.has-select .form-control 
+{
+    font-size: 12px;
+    padding-left: 30PX;
+    height: 37PX;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+.travellerClassDropdown 
+{
+    width: 226px;
+    background-color: #ffffff;
+    border: 0.4320000112056732px solid #2c2e35;
+    margin-top: 15px;
+    padding: 18px 18px;
+}
+ul.addRoomList 
+{
+    list-style: none;
+    padding: 0px;
+}
+.addRoomList p 
+{
+    font-size: 12px;
+    line-height: 10px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+.adultColRight li i 
+{
+    position: initial !important;
+    font-size: 8px !important;
+    border: 1px solid black;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2c2e35 !important;
+    cursor: pointer;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 2px;
+}
+.form-group.has-search.m-0 i {
+    width: 15px;
+    height: 15px;
+    top: 15px;
+    position: absolute;
+    left: 7px;
+    color: #949494;
+    font-size: 15px;
+}
+li.clearfix.adultCol {
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+}
+input.btn.btn-danger.form-control.customBtn {
+    background: #7B1FA2;
+    border: 0px;
+}
+section.hotelSearchBox 
+{
+    background: #261b3f;
+    padding: 55px 0px 20px 0px;
+}
+.customBtn{
+    background: #7B1FA2;
+    border: 0px;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 400;
+    cursor:pointer;
+}
+/**Search Box hotel**/
+.searchBoxHotel
+{
+    width:20.5%;
+}
+.searchBoxHotel .form-group.has-search
+{
+    border: 0;
+}
+.searchBoxHotel span
+{
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.searchBoxHotel .form-control
+{
+    padding-left: 40px;
+padding-top: 14px;
+font-size: 12px;
+line-height: 13px;
+color: #bababa !important;
+font-family: "Arial";
+}
+/** hide show content **/
+.accordion .card-header:after 
+{
+    font-family: 'FontAwesome';  
+    content: "Hide";
+    float: right;
+    font-size: 6px;
+    line-height: 15px;
+    color: #b0b1b3;
+    font-family: "Archivo";
+    font-weight: 600; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "Show"; 
+}
+/**Login form css**/
+/**section.loginPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}**/
+.loginFormdiv {
+    width: 389px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.loginIcon.arrow-bottom {
+    width: 100%;
+    background: linear-gradient(184deg, rgba(69,39,160,0.5) 0%, rgba(69,39,160,0.5) 9%, rgba(123,31,162,0.9) 100%) ,
+    url('../../assets/images/popup/bg-registration.png');
+    /*background-color: #7B1FA2;*/
+    color: #fff;
+    /* padding: 20px; */
+    position: relative;
+    HEIGHT: 142PX;
+    border-radius: 6px 6px 0px 0px;
+}
+.loginIcon.arrow-bottom img {
+    width: 70px;
+    height: auto;
+    /* line-height: 142px; */
+    margin: 35px 0px;
+}
+.arrow-bottom.arrow-bottom-border:after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    bottom: -9px;
+    border-top: 10px solid #7B1FA2;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: none;
+    /* transform: translate(0%,-50%); */
+    left: 47%;
+}
+.loginForm {
+    background: white;
+    margin-top: 15px;
+}
+.loginForm .primaryText {
+    FONT-SIZE: 17PX;
+    COLOR: #2c2e35;
+    FONT-FAMILY: Archivo;
+    font-weight: 600;
+    MARGIN-BOTTOM: 0PX;
+}
+.loginForm .SecondayText {
+    font-size: 12px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.loginForm form {
+    padding: 0px 55px;
+    width: 100%;
+}
+.loginForm input {
+    font-size: 12px;
+    color: #d8d9da;
+    font-family: "Archivo";
+    font-weight: 400;
+    MARGIN-BOTTOM: 10px !important;
+}
+.checkboxForgetl {
+    font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.styled-checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+.checkboxForgetl {
+    font-size: 11px;
+    color: #343630;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+.styled-checkbox:checked + label:before {
+    background: #7b1fa2;
+}
+
+.styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    background: #eae9e9;
+}
+.loginForm button {
+    /* width: 278px; */
+    height: 28px;
+    border-radius: 14px;
+    background-color: #7b1fa2;
+    MARGIN: 0PX AUTO;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.socialBtngf {
+    width: 100%;
+    padding: 0px 55px;
+    float: left;
+    margin-bottom: 20px;
+}
+.socailBtn {
+    width: 47.5%;
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    width: 30px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.google-btn {
+    height: 30px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-right: 5%;
+    position: relative;
+    float: left;
+    border: 1px solid gray;
+}
+.socailBtn.google-btn.facebook-btn p {
+    left: 36px;
+    color: gray;
+}
+.google-btn p {
+    color: white;
+    position: absolute;
+    top: 8px;
+    left: 38px;
+    font-size: 7px;
+    margin-bottom: 0px;
+}
+.socailBtn.google-btn.facebook-btn {
+    margin-right: 0px;
+    background: white;
+}
+.loginForm .SecondayText {
+    font-size: 12px;
+    color: #2c2e35;
+    font-family: "Archivo";
+    font-weight: 400;
+}
+/** Registration form **/
+.registrationFormDiv {
+    width: 776px;
+    border-radius: 6px;
+    background: white;
+    PADDING: 0PX;
+    height: 505px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.registrationLeftDiv {
+    width: 50%;
+    float: left;
+    background: white;
+    border-radius: 6px 0px 0px 6px;
+}
+.registrationIcon img {
+    width: 96px;
+    height: 96px;
+    margin: 23px 0px;
+}
+.loginForm {
+    background: white;
+    margin-top: 15px;
+}
+.loginForm form {
+    padding: 0px 55px;
+    width: 100%;
+}
+.registrationRightDiv {
+    width: 50%;
+    background: linear-gradient(184deg, rgba(69,39,160,0.5) 0%, rgba(69,39,160,0.5) 9%, rgba(123,31,162,0.9) 100%) ,url('../../assets/images/popup/bg-registration.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    float: right;
+    padding: 62px 32px;
+    color: white;
+    height: 505px;
+    border-radius: 0px 6px 6px 0px;
+}
+.registrationRightDiv .primaryText {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+}
+.border-botted {
+    border: 0.1px dotted white;
+}
+ul.RegistrationPoints {
+    padding-left: 25px;
+    padding-top: 20px;
+}
+ul.RegistrationPoints li {
+    margin-bottom: 10px;
+}
+.registrationRightDiv .primaryText {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "Archivo";
+    font-weight: 600;
+}
+.google-btn .google-icon {
+    margin-top: 5px;
+    width: 17px;
+    height: 17px;
+}
+.customClassRegistar
+{
+    z-index:9;
+    color:white;
+}
+
+
+.roomcount {
+    display: none;
+    background: #fff;
+    width: 283px;
+    border-radius: 3px;
+    box-shadow: 0 13px 30px rgba(41,51,57,.75);
+    border: 1px solid #298eefe3;
+    line-height: normal;
+    position: absolute;
+    right: 0px;
+    top: 75px;
+    left: -45px;
+    transition: all 400ms ease-in-out;
+    z-index: 10000;
+}
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+.svg-inline--fa.fa-w-10 {
+    width: .625em;
+}
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+}
+.oneroom {
+    padding: 6px 14px;
+    vertical-align: top;
+}
+.roomrow {
+    display: table;
+    width: 100%;
+}
+.celroe {
+    display: table-cell;
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+}
+.quantity {
+    padding-top: 5px;
+}
+.quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.quantity__input {
+    height: 24px;
+    font-size: 13px !important;
+}
+.quantity__input {
+    width: 32px;
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+    border-top: 2px solid #dee0ee;
+    border-bottom: 2px solid #dee0ee;
+    border-left: 1px solid #dee0ee;
+    border-right: 2px solid #dee0ee;
+    background: #fff;
+    color: #8184a1;
+}
+.quantity__minus, .quantity__plus {
+    line-height: 16px !important;
+}
+.quantity__plus {
+    border-radius: 0 3px 3px 0;
+}
+
+
+////////
+
+
+
+
+/**Responsive header**/
+/**Responsive Css**/
+@media (min-width: 320px) and (max-width: 480px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+	}
+	.carousel-control
+	{
+		display:none;
+	}
+	.registrationFormDiv
+	{
+		width:100%;
+    }
+    .logo
+    {
+        padding:0px;
+        border-right:0 !important
+    }
+    section.hotelSearchBox ,section.pageHeading{
+        padding: 5px !important;
+    }
+    .hotelPriceRight
+    {
+        padding:10px;
+    }
+    .leftMenu li.nav-item.active
+    {
+        border-bottom: 0px;
+    }
+}
+@media (min-width: 480px) and (max-width: 767px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+	}
+	.carousel-control
+	{
+		display:none;
+	}
+}
+@media (min-width: 768px) and (max-width: 1023px)
+{
+	.headerRightMenu li
+	{
+		width:100%;
+		text-align:center;
+		padding:10px 0px;
+		border:0px !important;
+	}
+	li.nav-item.active
+	{
+		border-bottom:none;
+		margin-bottom:10px;
+    }
+    .hotelPriceRight button
+    {
+        width:auto;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1199px)
+{
+	.headerRightMenu li
+	{
+		width:inherit;
+		padding:10px 0px;
+		border:0px !important;
+	}
+}
+/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 70px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 70px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 70px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 70px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}/** Hotel List Dropdown **/
+.oneroom {
+    padding: 6px;
+    min-width:260px;
+    display:block;
+}
+.roomnum {
+color:#2d343b;margin-bottom: 0px;font-size: 12px;
+}
+#rmroom {
+padding-left:24px;text-align:right;
+}
+.roomrow {
+    display: flex;
+    width: 100%;
+	}
+	.bor-bot {
+	border-bottom:1px solid #000;
+}
+.celroe {
+   
+    padding: 10px;
+    float: none;
+    vertical-align: middle;
+	color:#2d343b;
+	font-size: 12px;
+	width:50%;
+}
+ .quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+	float: right;
+}
+
+.quantity__minus, .quantity__plus {
+color: #000;border: 1px solid #000;
+    display: block;
+    width: 23px;
+    height: 23px;
+     margin:0;
+    background: #fff;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 20px;
+     padding:0;
+	 font-size:15px;
+}
+.adult_input,.children_input {
+     width: 32px;
+    height: 24px;
+    font-size: 13px !important;
+    border: none;
+    text-align: center;
+    line-height: 0;
+	}
+	/**New Added**/
+.psngrpopover {
+display:none;
+top: 55px;
+    left: 0;
+    position: absolute;
+    /* width: 260px; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+.quantity input {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+.posrel {
+position:relative;
+}
+
+.agemns {
+padding-top:4px;
+}
+.custombtn1,.custombtn {
+text-decoration:none !important;color:#0780f5;font-size:13px;
+}
+.btnrow {
+    padding: 6px;
+	}
+.done1 {
+border: 1px solid  #298eefe3;text-transform:initial;color: #fff;padding: 6px 20px;background:#7B1FA2;margin-left:auto;
+}
+.custom-select {
+-webkit-appearance: none;
+padding: 0px 8px;
+background: url("https://cdn1.iconfinder.com/data/icons/general-ui-outlined-thick/24/chevron-down-512.png") no-repeat right .4rem center/10px 11px !important;
+}
+.roomrow label {
+    position: initial;
+    padding-left: 0px !important;
+    /* text-align: center; */
+}
+.popover-body,.psngrpopover
+{
+  background-color: white;
+}
+.popover-body:after,.psngrpopover:after
+{
+	content: " ";
+    position: absolute;
+    top: -10px;
+    border-top: none;
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-bottom: 10px solid white;
+    left: 48%;
+}

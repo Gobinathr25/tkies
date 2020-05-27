@@ -1,0 +1,217 @@
+<!--Header Start-->
+<header>
+	<div id="topheader">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light customBgnav">
+	<div class="container">
+	  <a class="navbar-brand text-uppercase logo border-right" href="#"><img src="../../assets/images/header/logo.png" alt="logo" /></a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav text-center mr-auto text-uppercase leftMenu">
+		  <li class="nav-item active">
+			<i class="fa fa-home" aria-hidden="true"></i>
+			<a class="nav-link pt-0" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item">
+			<i class="fa fa-plane plan-icon" aria-hidden="true"></i>
+			<a class="nav-link pt-0" routerLink="/flight">Flight</a>
+		  </li>
+		  <li class="nav-item">
+			<i class="fas fa-bed" aria-hidden="true"></i>
+			<a class="nav-link pt-0" routerLink="/hotel">Hotel</a>
+		  </li>
+		  <li class="nav-item dropdown mt-2 ">
+			<a class="nav-link dropdown-toggle more" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <i class="fa fa-plus" aria-hidden="true" style="font-size:8px;"></i> More
+			</a>
+			<!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <a class="dropdown-item" href="#">Action</a>
+			  <a class="dropdown-item" href="#">Another action</a>
+			  <div class="dropdown-divider"></div>
+			  <a class="dropdown-item" href="#">Something else here</a>
+			</div>-->
+		  </li>	  
+		</ul>
+		<div id="rightMenu">
+		 <ul class="navbar-nav list-inline m-0 headerRightMenu">
+			<li class="nav-item dropdown list-inline-item mr-0">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  My Account |  My Booking
+			</a>
+			<div class="dropdown-menu accountDropdown arrow arrow-top" aria-labelledby="navbarDropdown">
+			<div class="profileSection">
+			  <div class="profileImg">
+				<span><img src="../../assets/images/header/rUsericon.png" alt="registrationIcon" /></span>
+			  </div>
+			  <div class="profileText">
+				<ul>
+					<li>My Booking</li>
+					<li></li>
+				</ul>
+			  </div>
+			  </div>
+			  <a class="secondaryText loginBtn btn-block" (click)="openLogin(mymodal)" >Login</a>
+			  <p class="secondaryText registrationlink">Don't have an account <a class="link" (click)="openRegistration(mymodal_reg)"> Register Here</a></p>
+			</div>
+		  </li>
+		  <li class="nav-item dropdown list-inline-item mr-0">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  Support
+			</a>
+			<!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <a class="dropdown-item" href="#">Action</a>
+			  <a class="dropdown-item" href="#">Another action</a>
+			  <div class="dropdown-divider"></div>
+			  <a class="dropdown-item" href="#">Something else here</a>
+			</div>-->
+		  </li>
+		  <li class="nav-item list-inline-item mr-0">
+			<a class="nav-link" href="#">Pay Online</a>
+		  </li>
+		  <li class="nav-item list-inline-item mr-0">
+			<a class="nav-link" href="#">My Trip</a>
+		  </li>
+		   <li class="nav-item list-inline-item mr-0 border-left">
+			<a class="nav-link" href="#"><img src="../../assets/images/header/am-flag-icon.png" alt="image" class="flag-icon"/></a>
+		  </li>
+		  <li class="nav-item list-inline-item mr-0 border-right">
+			<a class="nav-link" href="#">$</a>
+		  </li>
+		 </ul>
+		</div>
+	  </div>
+	  </div>
+	</nav>
+	</div>
+</header>
+<!-- Header End-->
+<!--Popup code Login-->
+<ng-template #mymodal let-modal>
+		<section class="loginPage" >
+			<div class=" text-center loginFormdiv alert  alert-dismissible">
+			  <div class="loginIcon arrow-bottom arrow-bottom-border">
+				<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+					<span aria-hidden="true">×</span>
+				  </button>
+				<img src="../../assets/images/header/rUsericon.png" alt="icon" />
+			  </div>
+			  <div class="loginForm">
+				<h5 class="primaryText"><strong>Get the full experience </strong></h5>
+				<p class="SecondayText">Track prices, make trip planning easier and enjoy faster booking.</p>
+				<form>
+				  <div class="input-group">
+				  <input type="text" placeholder="Usename" class="form-control">
+				  </div>
+				  <div class="input-group">
+				  <input type="text" placeholder="Password" class="form-control">
+				  </div>
+				  <div class="float-left checkboxForgetl">
+				  <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" checked>
+				  <span class="glyphicon glyphicon-ok"></span>
+				  <label for="styled-checkbox-2">Remember Me</label>
+				  </div>
+				  <div class="float-right checkboxForgetl">
+					<a href="#">Forgot Password</a>
+				  </div>
+				  <button type="submit" class="form-control">Continue</button>
+				  <p class="checkboxForgetl">By proceeding, you agree with our<a href="#" class="link">Terms of Services</a><a href="#" class="link">Privacy Policy </a>& <a href=""class="link">Master user Agreement</a></p>
+				</form>
+				<hr>
+				<div class="socialBtngf">
+				<div class="socailBtn google-btn">
+				  <div class="google-icon-wrapper">
+				  <img class="google-icon" src="../../assets/images/popup/google-photos-icon.png" alt="google-icon"/>
+				  </div>
+				  <p>Sign in with Google</p>
+				</div>
+				<div class="socailBtn google-btn facebook-btn">
+				  <div class="google-icon-wrapper">
+				  <img class="google-icon" src="../../assets/images/popup/fb-icon.png" alt="google-icon"/>
+				  </div>
+				  <p>Sign in with Facebook</p>
+				</div>
+				</div>
+				<p class="SecondayText">Don’t have an account?  <a href="Register.html" class="link">Register Here.</a></p>
+			  </div>
+			</div>
+		  </section>
+  </ng-template>
+
+  <!--Popup code Registration-->
+
+<ng-template #mymodal_reg let-modal>
+	<section class="loginPage">
+		<div class="registrationFormDiv mx-auto alert  alert-dismissible">
+			<button type="button" class="close customClass customClassRegistar" aria-label="Close" (click)="modal.dismiss('Cross click')">
+				<span aria-hidden="true">×</span>
+			</button>
+		  <div class=" registrationLeftDiv text-center col-sm-12 col-12">
+			<div class="registrationIcon" style="HEIGHT: 142PX;">
+			  <img src="../../assets/images/header/rUsericon.png" alt="registrationIcon" />
+			</div>
+			<div class="loginForm ">
+				<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+
+				<div class="input-group">
+
+				<input type="text" placeholder="First Name" class="form-control" style="margin-right: 5px;border-radius: 4px;" name="first_name" ngModel>
+				<input type="input" placeholder="Last Name" class="form-control" style="margin-left: 5px;border-radius: 4px;" name="last_name" ngModel>
+				</div>
+				<div class="input-group">
+				<input type="email" placeholder="Email Address" class="form-control" name="email" ngModel>
+				</div>
+				<div class="input-group">
+				<input type="password" placeholder="Create a Passowrd " class="form-control" name="password" ngModel>
+				</div>
+				<div class="float-left checkboxForgetl">
+				<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" checked>
+				<span class="glyphicon glyphicon-ok"></span>
+				<label for="styled-checkbox-2">Remember Me</label>
+				</div>
+				<div class="float-right checkboxForgetl">
+				  <a href="#">Forgot Password</a>
+				</div>
+				<button type="submit" class="form-control">Continue</button>
+				<p class="checkboxForgetl">By proceeding, you agree with our<a href="#" class="link">Terms of Services</a><a href="#" class="link">Privacy Policy </a>& <a href=""class="link">Master user Agreement</a></p>
+			  </form>
+			  <hr>
+			  <div class="socialBtngf">
+			  <div class="socailBtn google-btn">
+				<div class="google-icon-wrapper">
+				<img class="google-icon" src="../../assets/images/popup/google-photos-icon.png" alt="google-icon"/>
+				</div>
+				<p>Sign in with Google</p>
+			  </div>
+			  <div class="socailBtn google-btn facebook-btn">
+				<div class="google-icon-wrapper">
+				<img class="google-icon" src="../../assets/images/popup/fb-icon.png" alt="google-icon"/>
+				</div>
+				<p>Sign in with Facebook</p>
+			  </div>
+			  </div>
+			  <p class="SecondayText clearfix">Already have an account?  <a href="Login.html" class="link">Login Here.</a></p>
+			</div>
+		  </div>
+		  <div class="registrationRightDiv col-sm-12 col-12" >
+			<h5 class="primaryText">Get the full experience</h5>
+			<p class="SecondayText">Track prices, make trip planning easier and enjoy faster booking.</p>
+			<div class="border-botted"></div>
+			<ul class="RegistrationPoints">
+			  <li ><span class="primaryText">Log in book faster</span>
+			   <span class="SecondayText">Store up your personal details to speed up future purchase</span>
+			  </li>
+			  <li><span class="primaryText">Log in book faster</span>
+			   <span class="SecondayText">Store up your personal details to speed up future purchase</span>
+			  </li>
+			  <li><span class="primaryText">Log in book faster</span>
+			   <span class="SecondayText">Store up your personal details to speed up future purchase</span>
+			  </li>
+			  <li><span class="primaryText">Log in book faster</span>
+			   <span class="SecondayText">Store up your personal details to speed up future purchase</span>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </section>
+</ng-template>
