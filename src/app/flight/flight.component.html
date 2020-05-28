@@ -244,37 +244,12 @@
 
         <div class="col-lg-12 checkBox">
           <div class="float-left">
-            <h6>CLASS</h6>
+            <h6>Price</h6>
           </div>
           <div class="float-right">
             <a class="pre" onclick="myfunction1()" id="click1"> Hide</a>
           </div>
-          <div style="padding-top:30px;">
-            <ul class="list-inline pt-2 line-height" id="myfilter1">
-              <li>
-                <label class="container1" style="color:black;font-size:14px;">Economy
-                  <input type="checkbox" checked="checked">
-
-                  <span class="checkmark"></span>
-                </label>
-              </li>
-              <li>
-                <label class="container1" style="color:black;font-size:14px;">Business
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </li>
-
-              <li>
-                <label class="container1" style="color:black;font-size:14px;">First
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </li>
-
-            </ul>
-          </div>
-
+          <ng5-slider [(value)]="value" [options]="options" (userChangeEnd)="OnChangePrice($event)"></ng5-slider>
         </div>
 
 
@@ -435,8 +410,8 @@
               </li>
 
               <li>
-                <label class="container1" style="color:black;font-size:14px;">Emirates
-                  <input type="checkbox" name="airline3" value="3" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
+                <label class="container1" style="color:black;font-size:14px;">Air India
+                  <input type="checkbox" name="airline3" value="AI" (change)="OnChangeAirline( $event.target.checked, $event.target.value)">
                   <span class="checkmark"></span>
                 </label>
 

@@ -5,6 +5,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Options } from 'ng5-slider';
 
 declare var $: any;
 @Component({
@@ -27,11 +28,18 @@ export class FlightComponent {
   foundFlight: boolean;
   depTimeArray = [];
   arrTimeArray = [];
-  @Input() flightDetails: any;
   filterSearchFlight = [];
   stopCountArray = [];
   airLinesArray = [];
   filteredSearchFlight = [];
+  reset: number;
+  sliderPrice: number;
+  value: number = 0;
+  options: Options = {
+    floor: 0,
+    ceil: 2000
+  };
+
   constructor(private router: Router, private flightService: FlightService, private SpinnerService: NgxSpinnerService, private config: NgbDatepickerConfig) {
     const current = new Date();
     this.dep_minDate = {
@@ -102,9 +110,6 @@ export class FlightComponent {
     var adultCount = (<HTMLInputElement>document.getElementsByClassName('adult_input2')[0]).innerText;
     var infantCount = (<HTMLInputElement>document.getElementsByClassName('infant_input2')[0]).innerText;
     var childCount = (<HTMLInputElement>document.getElementsByClassName('children_input2')[0]).innerText;
-    //var classType = (<HTMLInputElement>document.getElementsByClassName('form-check-input')[0]).innerText;
-    //console.log("classType:", val.exampleRadiosone);
-    //var dep_Date = val.departure_date.year+"-"+val.departure_date.month+"-"+val.departure_date.day;
     console.log("Value:", val);
     this.SpinnerService.show();
     val = {
@@ -129,14 +134,18 @@ export class FlightComponent {
         var flightlist = data.length > 0 ? data[0].flightlist : [];
         this.searchFlight = flightlist;
         this.filterSearchFlight = flightlist;
-        //console.log(data[0].flightlist);
-
       },
       (error) =>
         console.log("Something wrong here")
     );
 
   }
+  /*fetching price value from slider */
+  OnChangePrice(event) {
+    this.sliderPrice = event.value;
+    this.filterFlights();
+  }
+  /* Fetching the checkbox value for arrival time from left side pane*/
   OnChangeArrTime(isChecked, value) {
     if (isChecked) {
       if (!this.arrTimeArray.includes(value))
@@ -146,9 +155,9 @@ export class FlightComponent {
       let index = this.arrTimeArray.indexOf(value);
       if (index > -1) this.arrTimeArray.splice(index, 1);
     }
-    console.log("Arrival Time", this.arrTimeArray);
-    this.filterFlights();
+    this.filterFlights(); // calling the filter function 
   }
+  /* Fetching the checkbox value for Airlne from left side pane*/
   OnChangeAirline(isChecked, value) {
     if (isChecked) {
       if (!this.airLinesArray.includes(value))
@@ -158,9 +167,9 @@ export class FlightComponent {
       let index = this.airLinesArray.indexOf(value);
       if (index > -1) this.airLinesArray.splice(index, 1);
     }
-    console.log("Airlines", this.airLinesArray);
-    this.filterFlights();
+    this.filterFlights(); // calling the filter function 
   }
+  /* Fetching the checkbox value for Departure time from left side pane*/
   OnChangeDepTime(isChecked, value) {
     if (isChecked) {
       if (!this.depTimeArray.includes(value))
@@ -170,105 +179,228 @@ export class FlightComponent {
       let index = this.depTimeArray.indexOf(value);
       if (index > -1) this.depTimeArray.splice(index, 1);
     }
-    console.log("DepartureTime", this.depTimeArray);
-    this.filterFlights();
+    this.filterFlights(); // calling the filter function 
   }
+  /* Fetching the checkbox value for stop count from left side pane*/
   OnChange(isChecked, value) {
-
-    //this.searchFlight = this.filterSearchFlight;
     if (isChecked) {
       if (!this.stopCountArray.includes(value))
         this.stopCountArray.push(value);
     } else {
-      //this.searchFlight = this.filterSearchFlight;
       let index = this.stopCountArray.indexOf(value);
       if (index > -1) this.stopCountArray.splice(index, 1);
     }
-    console.log("Stop Count", this.stopCountArray)
-    this.filterFlights();
-    /*this.foundFlight = false;
-    this.searchFlight.forEach(element_flight => {
-
-      this.stopCountArray.forEach(element_stopCount => {
-        if (element_stopCount == element_flight.stop_cnt.toString()) {
-          this.foundFlight = true;
-          a++;
-          if (!(this.filteredSearchFlight.includes(element_flight)))
-            this.filteredSearchFlight.push(element_flight);
-        }
-        else {
-          a++;
-          if (this.foundFlight == false) {
-
-            let index_filter = this.filteredSearchFlight.indexOf(element_flight);
-            if (index_filter > -1) this.filteredSearchFlight.splice(index_filter, 1);
-          }
-        }
-      });
-    });
-    if (this.filteredSearchFlight.length == 0 && a <= 0) {
-      this.searchFlight = this.filterSearchFlight;
-    }
-    else
-      this.searchFlight = this.filteredSearchFlight*/
-
+    this.filterFlights(); // calling the filter function 
   }
+  /* fliter function*/
   filterFlights() {
     var a = 0;
     this.searchFlight = this.filterSearchFlight;
+    /* filter the stop count flight*/
     if (this.stopCountArray.length > 0) {
-      this.foundFlight = false;
-      this.searchFlight.forEach(element_flight => {
-        this.stopCountArray.forEach(element_stopCount => {
-          if (element_stopCount == element_flight.stop_cnt.toString()) {
-            this.foundFlight = true;
-            a++;
-            if (!(this.filteredSearchFlight.includes(element_flight)))
-              this.filteredSearchFlight.push(element_flight);
-          }
-          else {
-            a++;
-            if (this.foundFlight == false) {
-
-              let index_filter = this.filteredSearchFlight.indexOf(element_flight);
-              if (index_filter > -1) this.filteredSearchFlight.splice(index_filter, 1);
-            }
-          }
-        });
-      });
-      if (this.filteredSearchFlight.length == 0 && a <= 0) {
-        this.searchFlight = this.filterSearchFlight;
-      }
-      else
-        this.searchFlight = this.filteredSearchFlight
-    }
-    if (this.airLinesArray.length > 0) {
-      // this.foundFlight = false;
-      this.searchFlight.forEach(element_airlinecode => {
+      console.log("Before: ", this.searchFlight);
+      this.reset = 0;
+      for (var i = this.reset; i < this.searchFlight.length; i++) {
         this.foundFlight = false;
-        this.airLinesArray.forEach(element_airCode => {
-          if (element_airCode == element_airlinecode.airlinecode.toString()) {
-            this.foundFlight = true;
-            a++;
-            if (!(this.filteredSearchFlight.includes(element_airlinecode)))
-              this.filteredSearchFlight.push(element_airlinecode);
-          }
-          else {
-            a++;
-            if (this.foundFlight == false) {
-
-              let index_filter = this.filteredSearchFlight.indexOf(element_airlinecode);
-              if (index_filter > -1) this.filteredSearchFlight.splice(index_filter, 1);
+        if (this.stopCountArray.length > 0) {
+          for (var j = 0; j < this.stopCountArray.length; j++) {
+            if (this.stopCountArray[j] == this.searchFlight[i].stop_cnt.toString()) {
+              if (!(this.filteredSearchFlight.includes(this.searchFlight[i])))
+                this.filteredSearchFlight.push(this.searchFlight[i]);
+              this.foundFlight = true;
+              a++;
+              break;
+            }
+            else {
+              a++;
+              this.foundFlight = false;
             }
           }
-        });
-      });
+          if (this.foundFlight == false) {
+            let index_filter = this.filteredSearchFlight.indexOf(this.searchFlight[i]);
+            if (index_filter > -1) {
+              this.filteredSearchFlight.splice(index_filter, 1);
+              this.reset = 0;
+              if (this.filteredSearchFlight.length > 0)
+                i = -1;
+            }
+          }
+        }
+      }
+      if (this.filteredSearchFlight.length == 0 && a <= 0) {
+        this.searchFlight = this.filterSearchFlight;
+      }
+      else
+        this.searchFlight = this.filteredSearchFlight
+      console.log("After  ", this.searchFlight);
+    }
+    /* filter airline flight*/
+    if (this.airLinesArray.length > 0) {
+      console.log("Before: ", this.searchFlight);
+      this.reset = 0;
+      for (var i = this.reset; i < this.searchFlight.length; i++) {
+        this.foundFlight = false;
+        if (this.airLinesArray.length > 0) {
+          for (var j = 0; j < this.airLinesArray.length; j++) {
+            if (this.airLinesArray[j] == this.searchFlight[i].airlinecode.toString()) {
+              if (!(this.filteredSearchFlight.includes(this.searchFlight[i])))
+                this.filteredSearchFlight.push(this.searchFlight[i]);
+              this.foundFlight = true;
+              a++;
+              break;
+            }
+            else {
+              a++;
+              this.foundFlight = false;
+            }
+          }
+          if (this.foundFlight == false) {
+            let index_filter = this.filteredSearchFlight.indexOf(this.searchFlight[i]);
+            if (index_filter > -1) {
+              this.filteredSearchFlight.splice(index_filter, 1);
+              this.reset = 0;
+              if (this.filteredSearchFlight.length > 0)
+                i = -1;
+
+            }
+          }
+        }
+      }
+      if (this.filteredSearchFlight.length == 0 && a <= 0) {
+        this.searchFlight = this.filterSearchFlight;
+      }
+      else
+        this.searchFlight = this.filteredSearchFlight
+      console.log("After  ", this.searchFlight);
+    }
+    /* filter departure time flight*/
+    if (this.depTimeArray.length > 0) {
+      this.reset = 0;
+      for (var i = this.reset; i < this.searchFlight.length; i++) {
+        this.foundFlight = false;
+        if (this.depTimeArray.length > 0) {
+          for (var j = 0; j < this.depTimeArray.length; j++) {
+            if (this.validateTime(this.depTimeArray[j], this.searchFlight[i].departuretime.toString())) {
+              if (!(this.filteredSearchFlight.includes(this.searchFlight[i])))
+                this.filteredSearchFlight.push(this.searchFlight[i]);
+              this.foundFlight = true;
+              a++;
+              break;
+            }
+            else {
+              a++;
+              this.foundFlight = false;
+            }
+          }
+          if (this.foundFlight == false) {
+            let index_filter = this.filteredSearchFlight.indexOf(this.searchFlight[i]);
+            if (index_filter > -1) {
+              this.filteredSearchFlight.splice(index_filter, 1);
+              this.reset = 0;
+              if (this.filteredSearchFlight.length > 0)
+                i = -1;
+            }
+          }
+        }
+      }
+      if (this.filteredSearchFlight.length == 0 && a <= 0) {
+        this.searchFlight = this.filterSearchFlight;
+      }
+      else
+        this.searchFlight = this.filteredSearchFlight
+      console.log("After Departure Time  ", this.searchFlight);
+    }
+    /* filter Arrival time flight*/
+    if (this.arrTimeArray.length > 0) {
+      this.reset = 0;
+      for (var i = this.reset; i < this.searchFlight.length; i++) {
+        this.foundFlight = false;
+        if (this.arrTimeArray.length > 0) {
+          for (var j = 0; j < this.arrTimeArray.length; j++) {
+            if (this.validateTime(this.arrTimeArray[j], this.searchFlight[i].arrivaltime.toString())) {
+              if (!(this.filteredSearchFlight.includes(this.searchFlight[i])))
+                this.filteredSearchFlight.push(this.searchFlight[i]);
+              this.foundFlight = true;
+              a++;
+              break;
+            }
+            else {
+              a++;
+              this.foundFlight = false;
+            }
+          }
+          if (this.foundFlight == false) {
+            let index_filter = this.filteredSearchFlight.indexOf(this.searchFlight[i]);
+            if (index_filter > -1) {
+              this.filteredSearchFlight.splice(index_filter, 1);
+              this.reset = 0;
+              if (this.filteredSearchFlight.length > 0)
+                i = -1;
+            }
+          }
+        }
+      }
+      if (this.filteredSearchFlight.length == 0 && a <= 0) {
+        this.searchFlight = this.filterSearchFlight;
+      }
+      else
+        this.searchFlight = this.filteredSearchFlight
+      console.log("After arrival Time  ", this.searchFlight);
+    }
+    if (this.sliderPrice > 0) {
+      this.reset = 0;
+      for (var i = this.reset; i < this.searchFlight.length; i++) {
+        this.foundFlight = false;
+        if (this.sliderPrice <= Number(this.searchFlight[i].price)) {
+          a++;
+          if (!(this.filteredSearchFlight.includes(this.searchFlight[i])))
+            this.filteredSearchFlight.push(this.searchFlight[i]);
+        }
+        else {
+          a++;
+          let index_filter = this.filteredSearchFlight.indexOf(this.searchFlight[i]);
+          if (index_filter > -1) {
+            this.filteredSearchFlight.splice(index_filter, 1);
+            this.reset = 0;
+            if (this.filteredSearchFlight.length > 0)
+              i = -1;
+          }
+        }
+      }
       if (this.filteredSearchFlight.length == 0 && a <= 0) {
         this.searchFlight = this.filterSearchFlight;
       }
       else
         this.searchFlight = this.filteredSearchFlight
     }
+  }
+  validateTime(filterTime, resTime) {
+    if (resTime != null) {
+      var time = resTime.split(':');
+      var hours = time[0];
+      var mintues = time[1].split(' ')[0];
+      var mederian = time[1].split(' ')[1];
+      console.log("Hours", hours, "Minutes", mintues, "Mederian", mederian)
+      if (filterTime == "EMG") {
+        if (mederian == "AM" && (hours <= 5 && hours <= 12) && (mintues >= 0 && mintues <= 59))
+          return true;
+      }
+      if (filterTime == "MG") {
+        if (mederian == "AM" && (hours >= 6 && hours <= 11) && (mintues >= 0 && mintues <= 59))
+          return true;
+      }
+      if (filterTime == "EVG") {
+        if (mederian == "PM" && (hours <= 6 && hours <= 12) && (mintues >= 0 && mintues <= 59))
+          return true;
+      }
+      if (filterTime == "NGT") {
+        if (mederian == "PM" && (hours >= 6 && hours <= 11) && (mintues >= 0 && mintues <= 59))
+          return true;
+      }
+      return false;
+    }
+    else
+      return false;
   }
   setCodeName(name) {
     if (name != null) {
@@ -326,7 +458,7 @@ export class FlightComponent {
 
   ngOnInit() {
 
-    console.log("Flight Dertails:", this.flightDetails)
+
     function toggleIcon(e) {
       $(e.target)
         .prev('.panel-heading')
