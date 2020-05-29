@@ -23,10 +23,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { Ng5SliderModule } from 'ng5-slider';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [HotelComponent, HomeComponent, FlightComponent, AppComponent,
-    HotelbookingComponent, FlightbookingComponent, HoteldetailComponent, HotelconfirmationComponent, LoginComponent, RegistrationComponent, HeaderComponent, FooterComponent,
+    HotelbookingComponent, FlightbookingComponent, HoteldetailComponent, HotelconfirmationComponent, LoginComponent, RegistrationComponent, HeaderComponent, FooterComponent, AboutusComponent,
   ],
   imports: [
     BrowserModule,

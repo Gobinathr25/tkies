@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FlightService } from './../services/flight.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Observable } from 'rxjs';
@@ -39,19 +39,17 @@ export class FlightComponent {
     floor: 0,
     ceil: 2000
   };
+  data: any;
+  airline = [];
 
-  constructor(private router: Router, private flightService: FlightService, private SpinnerService: NgxSpinnerService, private config: NgbDatepickerConfig) {
+  constructor(private activaRouter: ActivatedRoute, private router: Router, private flightService: FlightService, private SpinnerService: NgxSpinnerService, private config: NgbDatepickerConfig) {
     const current = new Date();
     this.dep_minDate = {
       year: current.getFullYear(),
       month: current.getMonth() + 1,
       day: current.getDate()
     };
-    this.ret_minDate = {
-      year: current.getFullYear(),
-      month: current.getMonth() + 1,
-      day: current.getDate() + 1
-    };
+
     //config.maxDate = { year: 2099, month: 12, day: 31 };
     config.outsideDays = 'hidden';
     this.flightService.getAirportList().subscribe(
@@ -74,7 +72,7 @@ export class FlightComponent {
 
         this.airPortList1 = this.searchFromArray(this.airPortList, userId);
         // console.log(456);
-        console.log(this.airPortList1);
+        //console.log(this.airPortList1);
       }
     }
   }
@@ -91,10 +89,14 @@ export class FlightComponent {
       }
     }
   }
-
+  /* getAirlines() {
+     if (this.airPortList1.length > 0) {
+       this.airline = this.airPortList1.airlinecode;
+       console.log("Airlines", this.airline);
+     }
+   }*/
   searchFromArray(arr, regex) {
     let matches = [], i;
-    // console.log(arr)
     for (i = 0; i < arr.length; i++) {
       if (arr[i]['name'].match(regex)) {
         matches.push(arr[i]['name']);
@@ -105,41 +107,7 @@ export class FlightComponent {
   };
 
 
-  onSubmit(val: any) {
 
-    var adultCount = (<HTMLInputElement>document.getElementsByClassName('adult_input2')[0]).innerText;
-    var infantCount = (<HTMLInputElement>document.getElementsByClassName('infant_input2')[0]).innerText;
-    var childCount = (<HTMLInputElement>document.getElementsByClassName('children_input2')[0]).innerText;
-    console.log("Value:", val);
-    this.SpinnerService.show();
-    val = {
-      "search_type": val.search_type,
-      "adult_count": adultCount,
-      "infant_count": infantCount,
-      "child_count": childCount,
-      "senior_count": 0,
-      "origin1": this.setFormatCode(val.origin1),
-      "destination1": this.setFormatCode(val.goingto),
-      "origin": this.setCodeName(val.origin1),
-      "destination": this.setCodeName(val.goingto),
-      "departure_date": this.setDateFormat(val.departure_date),
-      "return_date": this.setDateFormat(val.return_date),
-      "class": val.exampleRadiosone
-    }
-    console.log(val);
-    this.flightService.getFlightSearch(val).subscribe(
-      (data) => {
-        console.log(data);
-        this.SpinnerService.hide();
-        var flightlist = data.length > 0 ? data[0].flightlist : [];
-        this.searchFlight = flightlist;
-        this.filterSearchFlight = flightlist;
-      },
-      (error) =>
-        console.log("Something wrong here")
-    );
-
-  }
   /*fetching price value from slider */
   OnChangePrice(event) {
     this.sliderPrice = event.value;
@@ -456,9 +424,54 @@ export class FlightComponent {
       });
   }
 
+  setGoingDate() {
+    var addMonth = 1;
+    const current = new Date(this.setDateFormat(this.model_frm.departure_date));
+    this.ret_minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate() + 1
+    };
+    if (this.ret_minDate.validateTime) {
+      this.ret_minDate = this.ret_minDate
+    }
+    else {
+      if (this.ret_minDate.day > 31) {
+        this.ret_minDate.day = 1;
+        this.ret_minDate.month = this.ret_minDate.month + 1;
+      }
+      if (this.ret_minDate.day > 30) {
+        if (this.ret_minDate.day = 1 && (this.ret_minDate.month == 4 || this.ret_minDate.month == 6 || this.ret_minDate.month == 9 || this.ret_minDate.month == 11)) {
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+        }
+      }
+      if (this.ret_minDate.month > 12) {
+        this.ret_minDate.month = 1
+        this.ret_minDate.year = this.ret_minDate.year + 1;
+      }
+      if (this.ret_minDate.year / 100 == 0 && this.ret_minDate.year / 400 == 0) {
+        if (this.ret_minDate.month == 2 && this.ret_minDate.day > 29)
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+      }
+      else {
+        if (this.ret_minDate.month == 2 && this.ret_minDate.day > 28)
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+      }
+      console.log(this.ret_minDate);
+    }
+  }
   ngOnInit() {
 
+    /*this.airPortListOrigin = value.origin1;
+    this.airPortListGoingTO = value.goingto;*/
 
+
+    /*console.log(this.activaRouter.data);
+    this.activaRouter.params.subscribe(params => {
+      console.log("Params", params['val']) // (+) converts string 'id' to a number
+
+      // In a real app: dispatch action to load the details here.
+    });*/
     function toggleIcon(e) {
       $(e.target)
         .prev('.panel-heading')
@@ -520,4 +533,47 @@ export class FlightComponent {
     });
 
   }
+  onSubmit(val: any) {
+
+    var adultCount = (<HTMLInputElement>document.getElementsByClassName('adult_input2')[0]).innerText;
+    var infantCount = (<HTMLInputElement>document.getElementsByClassName('infant_input2')[0]).innerText;
+    var childCount = (<HTMLInputElement>document.getElementsByClassName('children_input2')[0]).innerText;
+    console.log("Value:", val);
+    this.SpinnerService.show();
+    val = {
+      "search_type": val.search_type,
+      "adult_count": adultCount,
+      "infant_count": infantCount,
+      "child_count": childCount,
+      "senior_count": 0,
+      "origin1": this.setFormatCode(val.origin1),
+      "destination1": this.setFormatCode(val.goingto),
+      "origin": this.setCodeName(val.origin1),
+      "destination": this.setCodeName(val.goingto),
+      "departure_date": this.setDateFormat(val.departure_date),
+      "return_date": this.setDateFormat(val.return_date),
+      "class": val.exampleRadiosone
+    }
+    console.log(val);
+    this.flightService.getFlightSearch(val).subscribe(
+      (data) => {
+        console.log(data);
+        this.SpinnerService.hide();
+        var flightlist = data.length > 0 ? data[0].flightlist : [];
+        this.searchFlight = flightlist;
+        this.filterSearchFlight = flightlist;
+        this.airline = data.length > 0 ? data[0].airline : [];
+
+      },
+      (error) =>
+        console.log("Something wrong here")
+    );
+
+  }
+  /*ngAfterViewInit() {
+    this.flightService.searchDataEvent.subscribe((value: any) => {
+      console.log("from after init:", value)
+    })
+  }*/
+
 }
