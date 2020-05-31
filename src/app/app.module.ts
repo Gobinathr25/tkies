@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ReactiveFormsModule} from '@angular/forms'
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 
 
@@ -22,10 +22,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { Ng5SliderModule } from 'ng5-slider';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
-  declarations: [ HotelComponent, HomeComponent, FlightComponent ,AppComponent,
- HotelbookingComponent,FlightbookingComponent,HoteldetailComponent,HotelconfirmationComponent, LoginComponent, RegistrationComponent, HeaderComponent, FooterComponent, 
+  declarations: [HotelComponent, HomeComponent, FlightComponent, AppComponent,
+    HotelbookingComponent, FlightbookingComponent, HoteldetailComponent, HotelconfirmationComponent, LoginComponent, RegistrationComponent, HeaderComponent, FooterComponent, AboutusComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,10 +37,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    Ng5SliderModule,
     NgxSpinnerModule
   ],
-  providers: [LoginComponent,RegistrationComponent],
+  providers: [LoginComponent, RegistrationComponent],
   bootstrap: [AppComponent]
- // entryComponents: [LoginComponent]
+  // entryComponents: [LoginComponent]
 })
 export class AppModule { }

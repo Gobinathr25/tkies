@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FlightService } from './../services/flight.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router } from '@angular/router';
@@ -12,7 +12,8 @@ declare var $: any;
 })
 export class HomeComponent {
 
-  model: NgbDateStruct;
+  @Output() searchData = new EventEmitter<any>();
+
   model1: NgbDateStruct;
   airPortList: any[] = [];
   airPortList1: any[] = [];
@@ -106,7 +107,7 @@ export class HomeComponent {
       "return_date": this.setDateFormat(val.return_date),
       "class": val.exampleRadiosone
     }
-
+    this.flightService.getDataFromHome(val);
     this.router.navigate(['/flight'], { state: val });
   }
   setCodeName(name) {
