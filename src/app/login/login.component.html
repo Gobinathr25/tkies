@@ -2,7 +2,7 @@
 
 <!--Popup code Login-->
 <!--<ng-template #mymodal let-modal>-->
-    <form [formGroup]="loginForm" (ngSubmit)="login()" >
+    <form novalidate [formGroup]="loginForm" (ngSubmit)="login()" >
 
     <section class="loginPage" >
         <div class=" text-center loginFormdiv alert  alert-dismissible">
@@ -16,10 +16,16 @@
             <h5 class="primaryText"><strong>Get the full experience </strong></h5>
             <p class="SecondayText">Track prices, make trip planning easier and enjoy faster booking.</p>
               <div class="input-group">
-              <input type="text" placeholder="Usename" formControlName="username" class="form-control">
-              </div>
+              <input type="text" placeholder="Username" formControlName="username"  class="form-control" required>
+              <div *ngIf=" loginForm.username.invalid && (loginForm.username.dirty || loginForm.username.touched)" class="alert alert-danger">
+          <div *ngIf="loginForm.username.errors.required">
+            Username is required. </div>
+              </div> </div>
               <div class="input-group">
-              <input type="text" placeholder="Password" formControlName="password" class="form-control">
+              <input type="password" placeholder="Password" formControlName="password"  class="form-control" required>
+              <div *ngIf=" loginForm.password.invalid && (loginForm.password.dirty || loginForm.password.touched)" class="alert alert-danger"> 
+          <div *ngIf="loginForm.password.errors.required">
+            Password is required. </div></div>
               </div>
               <div class="float-left checkboxForgetl">
               <label class="container-checkbox">Remember Me
@@ -51,5 +57,7 @@
           </div>
         </div>
       </section>
+      <pre>{{loginForm.value | json}}</pre>
+
     </form>
 <!--</ng-template> -->

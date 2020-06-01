@@ -11,7 +11,8 @@ import {FormGroup,FormControl,Validators} from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   authobject
-  loginForm=new FormGroup({username:new FormControl("abc",Validators.required),password:new FormControl()})
+  loginForm: FormGroup;
+
  
 
   closeResult: string;
@@ -38,12 +39,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginForm=new FormGroup({username:new FormControl('',Validators.required),password:new FormControl('',Validators.required)})
+
   }
 
 
-  public login()
+  login()
   {
-    
+    console.log("enter this:::::::")
     this.authService.authenticate(this.loginForm.value).subscribe(res=>{
     //console.log(res.access_token)
     this.authobject=JSON.parse(res)

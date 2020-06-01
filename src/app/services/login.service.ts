@@ -34,7 +34,7 @@ export class LoginService {
     }
 
     registration(data):Observable<any>{
-      // console.log(data);
+       console.log(data);
           return this.http.post(`${this.regurl}`,data, httpOptions)
         }
 

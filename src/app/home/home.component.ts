@@ -144,6 +144,48 @@ export class HomeComponent {
       return "";
 
   }
+  setGoingDate() {
+    var addMonth = 1;
+    const current = new Date(this.setDateFormat(this.model_frm.departure_date));
+    this.ret_minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate() + 1
+    };
+    if (this.ret_minDate.validateTime) {
+      this.ret_minDate = this.ret_minDate
+    }
+    else {
+      if (this.ret_minDate.day > 31) {
+        this.ret_minDate.day = 1;
+        this.ret_minDate.month = this.ret_minDate.month + 1;
+      }
+      if (this.ret_minDate.day > 30) {
+        if (this.ret_minDate.day = 1 && (this.ret_minDate.month == 4 || this.ret_minDate.month == 6 || this.ret_minDate.month == 9 || this.ret_minDate.month == 11)) {
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+        }
+      }
+      if (this.ret_minDate.month > 12) {
+        this.ret_minDate.month = 1
+        this.ret_minDate.year = this.ret_minDate.year + 1;
+      }
+      if (this.ret_minDate.year / 100 == 0 && this.ret_minDate.year / 400 == 0) {
+        if (this.ret_minDate.month == 2 && this.ret_minDate.day >= 29)
+        {
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+          this.ret_minDate.day = 1;
+        }
+      }
+      else {
+        if (this.ret_minDate.month == 2 && this.ret_minDate.day > 28)
+        {
+          this.ret_minDate.day = 1;
+          this.ret_minDate.month = this.ret_minDate.month + 1;
+        }
+      }
+      console.log(this.ret_minDate);
+    }
+  }
 
   ngOnInit() {
 

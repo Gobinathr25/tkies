@@ -450,12 +450,18 @@ export class FlightComponent {
         this.ret_minDate.year = this.ret_minDate.year + 1;
       }
       if (this.ret_minDate.year / 100 == 0 && this.ret_minDate.year / 400 == 0) {
-        if (this.ret_minDate.month == 2 && this.ret_minDate.day > 29)
+        if (this.ret_minDate.month == 2 && this.ret_minDate.day >= 29)
+        {
           this.ret_minDate.month = this.ret_minDate.month + 1;
+          this.ret_minDate.day = 1;
+        }
       }
       else {
         if (this.ret_minDate.month == 2 && this.ret_minDate.day > 28)
+        {
+          this.ret_minDate.day = 1;
           this.ret_minDate.month = this.ret_minDate.month + 1;
+        }
       }
       console.log(this.ret_minDate);
     }
@@ -570,10 +576,10 @@ export class FlightComponent {
     );
 
   }
-  ngAfterViewInit() {
+/*  ngAfterViewInit() {
     this.flightService.searchDataEvent.subscribe((value: any) => {
       console.log("from after init:", value)
     })
-  }
+  }*/
 
 }

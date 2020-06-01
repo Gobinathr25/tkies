@@ -86,7 +86,7 @@
 													<label>Departure</label>
 													<input class="form-control" placeholder="yyyy-mm-dd" name="departure_date" [(ngModel)]="model_frm.departure_date" #departure_date="ngModel"
 													 [ngClass]="{ 'is-invalid': createForm.submitted && departure_date.invalid }" (click)="d.toggle()" ngbDatepicker
-													 [minDate]="dep_minDate" #d="ngbDatepicker" required autocomplete="off">
+													 [minDate]="dep_minDate" (ngModelChange)="setGoingDate()" #d="ngbDatepicker" required autocomplete="off">
 													<div *ngIf="createForm.submitted && departure_date.invalid" class="invalid-feedback">
 														<div *ngIf="departure_date.errors.required">Departure Date is required</div>
 													</div>
