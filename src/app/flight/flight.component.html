@@ -90,7 +90,11 @@
                     <input class="form-control" placeholder="yyyy-mm-dd" name="return_date" [(ngModel)]="model_frm.return_date" #return_date="ngModel"
                       [ngClass]="{ 'is-invalid': createForm.submitted && return_date.invalid }" (click)="rd.toggle()" ngbDatepicker
                       [minDate]="ret_minDate" #rd="ngbDatepicker" [required]="model_frm.search_type == '2'" autocomplete="off">
+<<<<<<< HEAD
                     <div *ngIf="createForm.submitted && return_date.invalid "  class="invalid-feedback">
+=======
+                    <div *ngIf="createForm.submitted && return_date.invalid " ( class="invalid-feedback">
+>>>>>>> eba6765d203730e3cdcc705ecce04520c8028bdf
                       <div *ngIf="return_date.errors.required">Return Date is required</div>
                     </div>
                   </div>

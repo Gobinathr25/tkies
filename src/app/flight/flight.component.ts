@@ -576,7 +576,7 @@ export class FlightComponent {
     );
 
   }
-/*  ngAfterViewInit() {
+  /*ngAfterViewInit() {
     this.flightService.searchDataEvent.subscribe((value: any) => {
       console.log("from after init:", value)
     })
